@@ -1,0 +1,217 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Foundation Tools Preview</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Saira:wght@500;600;700&display=swap">
+<style>
+/* Layout: a calm single column in the Foundation's own colours (orange, peach, deep teal-black, green); one idea per section */
+:root{
+  --bg:#ffffff; --soft:#f8f8f9; --peach:#fff0e6; --ink:#001d23; --muted:#5c6b6e; --line:#e7eaeb;
+  --orange:#ff6f0f; --orange-ink:#c24f00; --green:#1b7f5c; --green-soft:#e6f4ee;
+  --display:"Saira","Segoe UI",system-ui,sans-serif; --body:"Inter",system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#071c21; --soft:#0d262c; --peach:#2b1d12; --ink:#eef3f2; --muted:#a3b3b5; --line:#1f3a40;
+  --orange:#ff8a3d; --orange-ink:#ffb37f; --green:#5cc79f; --green-soft:#12332a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#071c21; --soft:#0d262c; --peach:#2b1d12; --ink:#eef3f2; --muted:#a3b3b5; --line:#1f3a40;
+  --orange:#ff8a3d; --orange-ink:#ffb37f; --green:#5cc79f; --green-soft:#12332a; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15.5px;line-height:1.6;margin:0}
+.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:40px 64px}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance;letter-spacing:-.01em}
+h1{font-size:clamp(30px,5vw,42px);line-height:1.1;font-weight:700}
+h2{font-size:26px;font-weight:600;line-height:1.2}
+h3{font-size:17px;font-weight:600}
+p{margin:0}
+.tag{font-family:var(--display);font-weight:600;color:var(--orange-ink);font-size:14px;letter-spacing:.04em}
+.lede{color:var(--muted);margin-top:12px;max-width:58ch}
+.jump{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.jump a{text-decoration:none;color:var(--ink);background:var(--peach);border-radius:50px;padding:7px 16px;font-size:14px;font-weight:500}
+.jump a:hover,.jump a:focus-visible{background:var(--orange);color:#fff}
+section{margin-top:56px;scroll-margin-top:20px}
+section>p.intro{color:var(--muted);margin:6px 0 18px}
+.num{font-family:var(--display);color:var(--orange);font-weight:700;font-size:15px}
+.panel{background:var(--soft);border-radius:18px;padding:22px}
+button{font:inherit;cursor:pointer;border-radius:50px;border:0;padding:9px 18px;font-weight:600;font-size:14px}
+.btn{background:var(--orange);color:#fff}
+.btn:disabled{opacity:.4;cursor:default}
+.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+button:focus-visible,select:focus-visible,a:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+select{font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:50px;padding:8px 14px}
+.who{font-size:12.5px;font-weight:600;border-radius:50px;padding:2px 10px;display:inline-block}
+.who.tools{background:var(--green-soft);color:var(--green)}
+.who.people{background:var(--peach);color:var(--orange-ink)}
+/* pipeline */
+.track{display:flex;align-items:flex-start;margin:6px 0 20px}
+.track .s{flex:1;text-align:center;position:relative;font-size:12.5px;color:var(--muted);min-width:0}
+.track .s::before{content:"";position:absolute;top:11px;left:-50%;width:100%;height:2px;background:var(--line);z-index:0}
+.track .s:first-child::before{display:none}
+.track .s.done::before{background:var(--orange)}
+.track .d{position:relative;z-index:1;width:24px;height:24px;border-radius:50%;margin:0 auto 6px;background:var(--bg);border:2px solid var(--line)}
+.track .s.done .d{background:var(--orange);border-color:var(--orange)}
+.track .s.now .d{box-shadow:0 0 0 5px var(--peach)}
+.track .s.now{color:var(--ink);font-weight:600}
+.grants{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.grants button{background:var(--bg);color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line);font-weight:500}
+.grants button[aria-pressed="true"]{box-shadow:inset 0 0 0 2px var(--orange)}
+.row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+.facts{display:flex;gap:22px;flex-wrap:wrap;margin:12px 0;font-size:14px}
+.facts b{display:block;font-family:var(--display);font-size:20px;font-variant-numeric:tabular-nums}
+.facts span{color:var(--muted);font-size:12.5px}
+.step-text{margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+/* tracker */
+.stu{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,2fr) auto;gap:12px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line);font-size:14px}
+.stu:last-of-type{border-bottom:0}
+.stu small{display:block;color:var(--muted);font-size:12.5px}
+.bar{height:8px;border-radius:8px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--green);border-radius:8px;transition:width .4s}
+.amt{font-variant-numeric:tabular-nums;color:var(--muted);font-size:12.5px;margin-top:4px}
+.plus{background:var(--peach);color:var(--orange-ink);padding:6px 12px;font-size:13px}
+.total{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;margin-bottom:6px}
+.total b{font-family:var(--display);font-size:30px;font-variant-numeric:tabular-nums}
+.report{margin-top:18px;background:var(--bg);border-radius:14px;padding:16px;font-size:14.5px}
+/* donors */
+.pick{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.bubble{background:var(--green-soft);border-radius:16px 16px 16px 4px;padding:14px 16px;white-space:pre-line;font-size:14.5px;max-width:480px}
+/* concept notes */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.tabs button{background:var(--bg);color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line);font-weight:500}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--bg);box-shadow:none}
+.note{display:grid;gap:16px}
+.note h4{font-family:var(--display);font-size:13px;color:var(--green);margin:0 0 4px;letter-spacing:.06em;text-transform:uppercase}
+.note ul{margin:0;padding-left:18px}
+.money{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
+.money td{padding:6px 0;border-bottom:1px solid var(--line)}
+.money td:last-child{text-align:right;white-space:nowrap;padding-left:12px}
+.money tr:last-child td{border-bottom:0;font-weight:600}
+.chain{display:flex;gap:6px;flex-wrap:wrap;font-size:13.5px}
+.chain span{background:var(--bg);border-radius:50px;padding:5px 12px}
+.chain em{font-style:normal;color:var(--orange)}
+.decide{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+footer{margin-top:64px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+@media (max-width:560px){.stu{grid-template-columns:1fr auto}.stu .barcol{grid-column:1 / -1;order:3}.track .s{font-size:11px}}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+</style>
+</head><body>
+
+<div class="wrap">
+  <p class="tag">Queen of Peace Foundation</p>
+  <h1>Simple tools, so more of every shilling reaches the students</h1>
+  <p class="lede">Four small demos of what we could build together. Click around: everything here is sample data, and nothing is sent anywhere.</p>
+  <div class="jump"><a href="#grants">Finding grants</a><a href="#tracker">Tracking students</a><a href="#donors">Thanking donors</a><a href="#concepts">Concept notes</a></div>
+
+  <section id="grants">
+    <p class="num">01</p>
+    <h2>Finding grants</h2>
+    <p class="intro">Each opportunity moves through six steps. Tools do the searching, matching and first drafts. The board decides and signs.</p>
+    <div class="panel">
+      <div class="grants" id="glist" role="group" aria-label="Sample grants"></div>
+      <div class="track" id="gtrack"></div>
+      <div id="gbody"></div>
+    </div>
+  </section>
+
+  <section id="tracker">
+    <p class="num">02</p>
+    <h2>Tracking students</h2>
+    <p class="intro">One line per student, no names in anything public. Every payment is matched to a school receipt, and the report for funders writes itself.</p>
+    <div class="panel">
+      <div class="total"><b id="raised"></b><span id="of" style="color:var(--muted)"></span></div>
+      <div class="bar" style="height:10px;margin-bottom:10px"><i id="rbar"></i></div>
+      <div id="rows"></div>
+      <div class="report"><span class="who tools">Written by tools</span><p id="report" style="margin-top:8px"></p></div>
+    </div>
+  </section>
+
+  <section id="donors">
+    <p class="num">03</p>
+    <h2>Thanking donors</h2>
+    <p class="intro">When a gift arrives, a thank-you is ready in seconds and the money shows up in the tracker above.</p>
+    <div class="panel">
+      <div class="pick">
+        <select id="dname" aria-label="Donor"><option>Grace</option><option>St. Mark's Church group</option><option>Daniel</option></select>
+        <select id="damt" aria-label="Amount"><option value="5000">KES 5,000</option><option value="20000" selected>KES 20,000</option><option value="75000">KES 75,000</option></select>
+        <select id="dvia" aria-label="Paid by"><option>M-Pesa</option><option>PayPal</option><option>bank transfer</option></select>
+        <button class="btn" id="dgo">Record gift</button>
+      </div>
+      <div class="bubble" id="thanks"></div>
+    </div>
+  </section>
+
+  <section id="concepts">
+    <p class="num">04</p>
+    <h2>Concept notes for the board</h2>
+    <p class="intro">Pick a programme idea. A one-page note comes out in the shape funders expect, ready for the board to change or approve.</p>
+    <div class="tabs" id="ptabs" role="group" aria-label="Programme"></div>
+    <div class="panel note" id="note"></div>
+  </section>
+
+  <footer>Made by Joseph Myers for the Queen of Peace Foundation · November 2026 · Sample data only: grant names, amounts and donors are illustrations, and no child is identified.</footer>
+</div>
+
+<script>
+const fmt=n=>'KES '+n.toLocaleString('en-KE');
+/* grants */
+const STEPS=[['Search','tools','New calls found every week: education, girls, peace, climate resilience.'],['Match','tools','Each call scored against the Foundation, with the reason it fits.'],['Draft','tools','A first concept note and budget, built from the Foundation profile.'],['Board','people','The board reads, changes and decides whether to apply.'],['Submit','people','Josephine signs and submits in the Foundation\'s name.'],['Report','tools','Reports go on the calendar, with results straight from the tracker.']];
+const GR=[{n:'Girls\' Education Fund',a:'US$10,000',f:92,d:'15 Jan',s:3},{n:'Community Resilience Grant',a:'US$25,000',f:81,d:'28 Feb',s:2},{n:'Peacebuilding Small Grants',a:'US$7,500',f:74,d:'31 Mar',s:1},{n:'County Bursary Partner',a:'KES 300,000',f:68,d:'10 Dec',s:4}];
+let gi=0;
+function drawG(){
+  const g=GR[gi];
+  document.getElementById('glist').innerHTML=GR.map((x,i)=>`<button aria-pressed="${i===gi}" data-i="${i}">${x.n}</button>`).join('');
+  document.querySelectorAll('#glist button').forEach(b=>b.onclick=()=>{gi=+b.dataset.i;drawG();});
+  document.getElementById('gtrack').innerHTML=STEPS.map((s,i)=>`<div class="s ${i<=g.s?'done':''} ${i===g.s?'now':''}"><div class="d"></div>${s[0]}</div>`).join('');
+  const st=STEPS[g.s];
+  document.getElementById('gbody').innerHTML=`<div class="row"><h3>Sample: ${g.n}</h3><span class="who ${st[1]}">${st[1]==='tools'?'Done by tools':'Decided by people'}</span></div>
+   <div class="facts"><div><b>${g.a}</b><span>amount</span></div><div><b>${g.f}/100</b><span>fit</span></div><div><b>${g.d}</b><span>deadline</span></div></div>
+   <p class="step-text"><b>${st[0]}.</b> ${st[2]}</p>
+   <div class="decide" style="margin-top:14px"><button class="ghost" id="gb" ${g.s===0?'disabled':''}>Back</button><button class="btn" id="gn" ${g.s===5?'disabled':''}>Next step</button></div>`;
+  document.getElementById('gn').onclick=()=>{if(g.s<5){g.s++;drawG();}};
+  document.getElementById('gb').onclick=()=>{if(g.s>0){g.s--;drawG();}};
+}
+drawG();
+/* tracker */
+const STU=[['Student A','Nursing diploma',120000,0],['Student B','Diploma, social work',110000,40000],['Student C','Grade 10',50000,50000],['Student D','Grade 1',25000,10000],['Student E','Early years',20000,0]].map(r=>({id:r[0],lvl:r[1],fee:r[2],paid:r[3]}));
+function drawT(){
+  let due=0,paid=0,full=0;
+  document.getElementById('rows').innerHTML=STU.map((s,i)=>{due+=s.fee;paid+=s.paid;if(s.paid>=s.fee)full++;const p=Math.round(100*s.paid/s.fee);
+    return `<div class="stu"><div><b>${s.id}</b><small>${s.lvl}</small></div><div class="barcol"><div class="bar"><i style="width:${p}%"></i></div><div class="amt">${fmt(s.paid)} of ${fmt(s.fee)}</div></div><button class="plus" data-i="${i}" ${s.paid>=s.fee?'disabled':''} aria-label="Add a sample payment for ${s.id}">${s.paid>=s.fee?'Paid ✓':'+ 10,000'}</button></div>`;}).join('');
+  document.querySelectorAll('#rows .plus').forEach(b=>b.onclick=()=>{const s=STU[+b.dataset.i];s.paid=Math.min(s.fee,s.paid+10000);drawT();});
+  document.getElementById('raised').textContent=fmt(paid);
+  document.getElementById('of').textContent=`raised of ${fmt(due)} for the January term`;
+  document.getElementById('rbar').style.width=Math.round(100*paid/due)+'%';
+  document.getElementById('report').textContent=`For the January term, the Foundation has raised ${fmt(paid)} of ${fmt(due)} (${Math.round(100*paid/due)}%). ${full} of ${STU.length} students are fully paid, each payment confirmed by a school receipt. ${fmt(due-paid)} is still needed before schools open.`;
+}
+drawT();
+/* donors */
+function drawD(){
+  const who=document.getElementById('dname').value,amt=+document.getElementById('damt').value,via=document.getElementById('dvia').value;
+  const covers=amt>=75000?'most of a term\'s fees for a college student':amt>=20000?'a full term of secondary school fees':'books and supplies for a term';
+  document.getElementById('thanks').textContent=`Hi ${who}, thank you so much 🙏\n\nWe received your gift of ${fmt(amt)} by ${via}. It covers ${covers}.\n\nEvery month you'll get a short update showing where every shilling went.\n\nWith gratitude,\nQueen of Peace Foundation`;
+}
+['dname','damt','dvia'].forEach(id=>document.getElementById(id).onchange=drawD);
+document.getElementById('dgo').onclick=()=>{let left=+document.getElementById('damt').value;for(const s of STU){if(left<=0)break;const add=Math.min(s.fee-s.paid,left);s.paid+=add;left-=add;}drawT();drawD();document.getElementById('dgo').textContent='Recorded ✓ see the tracker';setTimeout(()=>document.getElementById('dgo').textContent='Record gift',2200);};
+drawD();
+/* concept notes */
+const PROG={
+ edu:{t:'Education and mentorship',prob:'Girls and young people in Isiolo leave school when fees run out, and few see someone from home who made it through.',plan:['Pay fees straight to schools, matched to receipts','Pair each student with a mentor; graduates come back to mentor the next group','Check attendance and results every term'],budget:[['School and college fees (5 students, 1 year)',1220000],['Mentoring sessions and travel',90000],['Tracking and reporting',30000]],chain:['Fees paid','Students stay in class','Students move up a level','More girls finish and serve at home']},
+ vsla:{t:'Women\'s savings groups',prob:'Drought and conflict wipe out household savings, and women carry the loss with little support.',plan:['Savings kits for new village groups beyond the first two villages','Train group leaders in record-keeping and emergency funds','Connect groups across communities'],budget:[['Savings kits and training (10 new groups)',400000],['Leader training and follow-up',150000],['Tracking and reporting',30000]],chain:['Kits and training','Groups save weekly','Members recover faster','Stronger women\'s groups']},
+ peace:{t:'Peace across communities',prob:'Competition over water and pasture pulls neighbours apart, and women and youth are left out of peace efforts.',plan:['Regular dialogue for women from neighbouring communities','Train young peace ambassadors','Share early warnings through the women\'s network'],budget:[['Dialogue meetings (12 a year)',240000],['Peace ambassador training',180000],['Tracking and reporting',30000]],chain:['Meetings and training','Women and youth take part','Tensions handled early','Trust between neighbours']}};
+let pk='edu';
+function drawN(){
+  const p=PROG[pk],tot=p.budget.reduce((a,b)=>a+b[1],0);
+  document.getElementById('ptabs').innerHTML=Object.keys(PROG).map(k=>`<button aria-pressed="${k===pk}" data-k="${k}">${PROG[k].t}</button>`).join('');
+  document.querySelectorAll('#ptabs button').forEach(b=>b.onclick=()=>{pk=b.dataset.k;drawN();});
+  document.getElementById('note').innerHTML=`<div class="row"><h3>${p.t}</h3><span class="who people">Draft for the board</span></div>
+   <div><h4>The problem</h4><p>${p.prob}</p></div>
+   <div><h4>What we'll do</h4><ul>${p.plan.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+   <div><h4>Budget for one year</h4><table class="money"><tbody>${p.budget.map(b=>`<tr><td>${b[0]}</td><td>${fmt(b[1])}</td></tr>`).join('')}<tr><td>Total</td><td>${fmt(tot)}</td></tr></tbody></table></div>
+   <div><h4>How we'll show results</h4><div class="chain">${p.chain.map((c,i)=>`<span>${c}</span>${i<3?'<em>→</em>':''}`).join('')}</div></div>
+   <div class="decide"><button class="btn" id="ok">Approve to apply</button><button class="ghost" id="back">Send back with changes</button><span id="dec" role="status" style="font-size:14px;color:var(--muted)"></span></div>`;
+  document.getElementById('ok').onclick=()=>{document.getElementById('dec').textContent='Approved. It moves to "Submit" in the grant steps.'};
+  document.getElementById('back').onclick=()=>{document.getElementById('dec').textContent='Sent back. The draft is updated with the board\'s notes.'};
+}
+drawN();
+</script>
+</body></html>
