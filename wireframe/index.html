@@ -310,13 +310,53 @@ body[data-font="poppins"]{--display:"Poppins",system-ui,sans-serif;--body:"Nunit
  .wfbar .fontpick{font-size:12px}
  .orb{filter:blur(40px)}
 }
+
+/* ---- v5 ---- */
+.slides{position:absolute;left:0;top:-6%;width:100%;height:112%;z-index:-2}
+.slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.6s ease}
+.slides img.on{opacity:1}
+.dots{position:absolute;left:50%;bottom:76px;transform:translateX(-50%);display:flex;gap:8px;z-index:2}
+.dots i{width:8px;height:8px;border-radius:50%;background:#ffffff73;transition:all .4s}
+.dots i.on{width:22px;border-radius:6px;background:#fff}
+.updates2{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:32px}
+.upd{display:flex;flex-direction:column;gap:6px;padding:22px 22px 18px;text-decoration:none;overflow:hidden;min-height:200px;transition:transform .25s,box-shadow .25s}
+.upd::after{background:linear-gradient(180deg,#ffffffe6 35%,#ffffff8c),var(--img) center/cover!important;opacity:.55;z-index:-1}
+.upd{isolation:isolate}
+.upd:hover{transform:translateY(-4px);box-shadow:0 22px 44px -18px #3a2a1a55}
+.upd:hover::after{opacity:.8}
+.upd time{font-size:12.5px;color:var(--sun-ink);font-weight:600;letter-spacing:.04em}
+.upd p{color:var(--muted);font-size:14.5px}
+.upd .more{margin-top:auto;font-weight:600;font-size:14px;color:var(--ink)}
+.paths{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.path{padding:26px;display:flex;flex-direction:column;gap:10px}
+.path .btn{margin-top:auto;align-self:flex-start}
+.path.featured2{outline:2px solid #b5452b55;outline-offset:-2px}
+.ic2{font-size:28px}
+.logos{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:26px}
+.logo-tile{height:96px;display:grid;place-items:center;color:var(--muted);font-size:13px;border-style:dashed!important;filter:grayscale(1);transition:filter .3s,transform .3s}
+.logo-tile:hover{filter:none;transform:translateY(-3px)}
+.donors{padding:30px}
+.names{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;margin-top:20px;font-family:var(--display);font-size:19px}
+body[data-font="fraunces"] h1,body[data-font="fraunces"] h2{letter-spacing:-.015em;font-weight:600}
+/* background options */
+body[data-bg="photo"] .bg{background:url(img/bg-kenya-landscape.jpg) center/cover no-repeat}
+body[data-bg="photo"] .bg::after{background:linear-gradient(180deg,#fbf6eecc,#f3e9dab3);mix-blend-mode:normal;opacity:1}
+body[data-bg="photo"] .orb{display:none}
+body[data-bg="colours"] .bg{background:linear-gradient(180deg,#fbf6ee,#f4ece0)}
+body[data-bg="colours"] .o1{background:#1d2528;opacity:.22}
+body[data-bg="colours"] .o2{background:#b5452b;opacity:.38}
+body[data-bg="colours"] .o3{background:#2f6b3a;opacity:.38}
+body[data-bg="colours"] .bg::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(-12deg,transparent 0 120px,#ffffff59 120px 126px,transparent 126px 140px)}
+body[data-bg="beads"] .bg{background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><g fill-opacity='.16'><circle cx='15' cy='15' r='5' fill='%23b5452b'/><circle cx='35' cy='15' r='5' fill='%23d9a441'/><circle cx='55' cy='15' r='5' fill='%233f6b3a'/><circle cx='75' cy='15' r='5' fill='%231d2528'/><circle cx='95' cy='15' r='5' fill='%234f8fb8'/><circle cx='25' cy='45' r='5' fill='%23d9a441'/><circle cx='45' cy='45' r='5' fill='%23b5452b'/><circle cx='65' cy='45' r='5' fill='%23d9a441'/><circle cx='85' cy='45' r='5' fill='%23b5452b'/><path d='M0 80 L30 65 L60 80 L90 65 L120 80' stroke='%23b5452b' stroke-opacity='.18' stroke-width='3' fill='none'/><path d='M0 100 L30 85 L60 100 L90 85 L120 100' stroke='%233f6b3a' stroke-opacity='.18' stroke-width='3' fill='none'/></g></svg>") 0 0/120px repeat,linear-gradient(180deg,#fbf6ee,#f3e9da)}
+body[data-bg="beads"] .orb{opacity:.3}
+@media (max-width:900px){.updates2,.paths{grid-template-columns:1fr}.dots{bottom:64px}}
 </style>
 </head>
-<body data-font="jakarta">
+<body data-font="fraunces" data-bg="glow">
 <div class="bg" aria-hidden="true"><span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span></div>
 <div class="scrollbar" id="sbar"></div>
 
-<div class="wfbar"><div class="wrap"><span>Website wireframe · draft · sample numbers, placeholder photos</span><span class="fontpick" role="group" aria-label="Font options">Fonts: <button data-f="jakarta" aria-pressed="true">A · Jakarta ★</button><button data-f="saira" aria-pressed="false">B · Saira + Inter</button><button data-f="fraunces" aria-pressed="false">C · Fraunces + Inter</button><button data-f="poppins" aria-pressed="false">D · Poppins + Nunito</button><button id="notesbtn" aria-pressed="false">Design notes</button></span></div></div>
+<div class="wfbar"><div class="wrap"><span>Website wireframe · draft · sample numbers, placeholder photos</span><span class="fontpick" role="group" aria-label="Font options">Fonts: <button data-f="jakarta" aria-pressed="false">A · Jakarta</button><button data-f="saira" aria-pressed="false">B · Saira + Inter</button><button data-f="fraunces" aria-pressed="true">C · Fraunces + Inter ★</button><button data-f="poppins" aria-pressed="false">D · Poppins + Nunito</button></span><span class="fontpick" role="group" aria-label="Background options">Background: <button data-b="glow" aria-pressed="true">Earth glow</button><button data-b="photo" aria-pressed="false">Kenya landscape</button><button data-b="colours" aria-pressed="false">Kenya colours</button><button data-b="beads" aria-pressed="false">Beadwork</button></span><button id="notesbtn" aria-pressed="false">Design notes</button></div></div>
 
 <header>
   <div class="wrap">
@@ -327,6 +367,7 @@ body[data-font="poppins"]{--display:"Poppins",system-ui,sans-serif;--body:"Nunit
         <li><a href="#about" data-p="about">About</a></li>
         <li><a href="#programmes" data-p="programmes">Our work</a></li>
         <li><a href="#impact" data-p="impact">Impact</a></li>
+        <li><a href="#partners" data-p="partners">Partners</a></li>
         <li><a href="#involved" data-p="involved">Get involved</a></li>
         <li><a href="#sponsor" data-p="sponsor" class="btn btn-sun magnet" style="padding:8px 18px;color:#fff">Give</a></li>
       </ul>
@@ -338,7 +379,13 @@ body[data-font="poppins"]{--display:"Poppins",system-ui,sans-serif;--body:"Nunit
 <!-- ================= HOME ================= -->
 <div class="page active" id="p-home">
   <section class="hero">
-    <img src="img/rainbow-over-samburu-national-reserve-landscape-kenya.jpg" alt="Rainbow over acacia bushland in northern Kenya">
+    <div class="slides" aria-hidden="true">
+      <img class="on" src="img/rainbow-over-samburu-national-reserve-landscape-kenya.jpg" alt="" data-credit="Daniel Case, CC BY-SA 4.0">
+      <img src="img/ewaso-ngiro-at-samburu-intrepids-camp.jpg" alt="" data-credit="Daniel Case, CC BY-SA 4.0" loading="lazy">
+      <img src="img/yaaq-barsadi-isiolo-south-isiolo-kenya.jpg" alt="" data-credit="Asmai Sheikh, CC BY-SA 4.0" loading="lazy">
+      <img src="img/isiolo-marsabit-highway.jpg" alt="" data-credit="Ephymbaya, CC BY-SA 4.0" loading="lazy">
+      <img src="img/samburu-landscape-with-trees.jpg" alt="" data-credit="Daniel Case, CC BY-SA 4.0" loading="lazy">
+    </div>
     <div class="wrap">
       <p class="eyebrow">Educate · Protect · Empower</p>
       <h1>Every child deserves<br>a future.</h1>
@@ -346,7 +393,7 @@ body[data-font="poppins"]{--display:"Poppins",system-ui,sans-serif;--body:"Nunit
       <div class="ctas"><a class="btn btn-sun magnet" href="#sponsor">Sponsor a child</a><a class="btn btn-glass" href="#impact">See our work</a></div>
       <p class="note"><b>Colours and logo:</b> a proposal inspired by northern Kenya (red earth, acacia, savanna gold, dusk), with a thin bead-colour band as a quiet nod to the region's beadwork. The sun-over-acacia logo is a placeholder: Cliffe is designing the real one.</p><p class="note"><b>Why this hero:</b> Cliffe's own lines lead ("Every child deserves… a future", "Educate. Protect. Empower."). A rainbow over acacia land says "hope" without showing any child, so no consent is needed. One action only: Sponsor a child.</p>
     </div>
-    <span class="credit">Photo: Daniel Case, CC BY-SA 4.0 (placeholder)</span>
+    <span class="credit">Photo: <span id="hcredit">Daniel Case, CC BY-SA 4.0</span> (placeholder)</span><div class="dots" id="hdots" aria-hidden="true"></div>
   </section>
   <div class="hero-card"><div class="wrap"><div class="glass"><div><b data-count="38" data-suffix="%">0%</b></div><div style="flex:1"><div style="font-weight:600;font-size:14.5px">raised for the January term <span style="color:var(--muted);font-weight:400">· sample</span></div><div class="bar"><i id="herobar"></i></div></div><a class="btn btn-sun magnet" href="#sponsor" style="padding:11px 24px">Give</a></div></div></div>
 
@@ -440,10 +487,10 @@ body[data-font="poppins"]{--display:"Poppins",system-ui,sans-serif;--body:"Nunit
   <section class="sand">
     <div class="wrap">
       <div style="display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap"><div><p class="eyebrow">Latest news</p><h2 style="margin-top:8px">What we've been doing.</h2></div><a class="btn btn-line" href="#impact">All updates</a></div>
-      <div class="updates">
-        <article class="post glass-card"><div class="ph"><img src="img/landscape-of-ewaso-ngiro-basin-in-kenya.jpg" alt="Open landscape of the Ewaso Ng'iro basin under cloud" loading="lazy"></div><div class="t"><time>November 2026 · sample</time><h3>The Foundation is registered</h3><p style="color:var(--muted);margin-top:6px">Queen of Peace Hope Foundation can now work across Isiolo County and beyond.</p></div></article>
-        <article class="post glass-card"><div class="ph"><img src="img/yaaq-barsadi-isiolo-south-isiolo-kenya.jpg" alt="Green hills and acacia after rain in Isiolo South" loading="lazy"></div><div class="t"><time>January 2027 · sample</time><h3>Back to school</h3><p style="color:var(--muted);margin-top:6px">Our students start the new term with fees paid and books in hand.</p></div></article>
-        <article class="post glass-card"><div class="ph"><img src="img/samburu-landscape-with-trees.jpg" alt="Green acacia trees in golden grassland under a blue sky" loading="lazy"></div><div class="t"><time>December 2026 · sample</time><h3>Talking with families</h3><p style="color:var(--muted);margin-top:6px">Meetings with parents and elders on keeping girls in school.</p></div></article>
+      <div class="updates2">
+        <a class="upd glass-card" href="#impact" style="--img:url(img/landscape-of-ewaso-ngiro-basin-in-kenya.jpg)"><time>Nov 2026 · sample</time><h3>The Foundation is registered</h3><p>Queen of Peace Hope Foundation can now work across Isiolo County and beyond.</p><span class="more">Read update →</span></a>
+        <a class="upd glass-card" href="#impact" style="--img:url(img/samburu-landscape-with-trees.jpg)"><time>Dec 2026 · sample</time><h3>Talking with families</h3><p>Meetings with parents and elders on keeping girls in school.</p><span class="more">Read update →</span></a>
+        <a class="upd glass-card" href="#impact" style="--img:url(img/yaaq-barsadi-isiolo-south-isiolo-kenya.jpg)"><time>Jan 2027 · sample</time><h3>Back to school</h3><p>Our students start the new term with fees paid and books in hand.</p><span class="more">Read update →</span></a>
       </div>
       <p class="note"><b>Why:</b> a live "what we're doing" feed was Joseph's idea; Cliffe writes an update in a simple form and it appears here only after Josephine approves it. Keeps the site alive without a developer.</p>
     </div>
@@ -578,6 +625,30 @@ body[data-font="poppins"]{--display:"Poppins",system-ui,sans-serif;--body:"Nunit
   </div><div class="wrap"><p class="note"><b>Why:</b> monthly giving is the steadiest money a small charity can have, so it's featured. Gift amounts are examples to confirm with the team. "Why we pool gifts" protects children at risk while keeping Cliffe's "Sponsor a Child" idea. Donate buttons connect to the Foundation's PayPal and M-Pesa once open; money never touches the website.</p></div></section>
 </div>
 
+<!-- ================= PARTNERS ================= -->
+<div class="page" id="p-partners">
+  <div class="pagehead"><div class="wrap"><p class="eyebrow">Partners</p><h1 style="margin-top:8px;font-size:clamp(32px,5vw,50px)">Schools, donors and partners,<br>working as one.</h1><p class="lead">Children stay in school when schools, families and supporters pull together. Here is who stands with us.</p></div></div>
+  <section><div class="wrap">
+    <div class="paths">
+      <div class="path glass-card"><span class="ic2">🏫</span><h3>Partner school</h3><p>Re-admit and support our students. We pay fees on time, keep receipts, and share attendance with you each term.</p><ul class="list"><li>Fees paid directly, every term</li><li>A named contact at the Foundation</li><li>Fee-balance and payment-plan letters</li></ul><a class="btn btn-sun magnet" href="#involved">Become a partner school</a></div>
+      <div class="path glass-card featured2"><span class="ic2">🤝</span><h3>Funding partner</h3><p>Fund a programme, a school or a cohort of students, with reports in the format you need.</p><ul class="list"><li>Concept notes and budgets on request</li><li>Term and annual reports from our tracker</li><li>Your logo on our partners wall</li></ul><a class="btn btn-sun magnet" href="#involved">Partner with us</a></div>
+      <div class="path glass-card"><span class="ic2">💛</span><h3>Donor</h3><p>Give once or monthly. Every shilling is traced from your gift to a school receipt.</p><ul class="list"><li>A thank-you within a day</li><li>A short update every month</li><li>Listed as a supporter (if you wish)</li></ul><a class="btn btn-sun magnet" href="#sponsor">Give</a></div>
+    </div>
+
+    <div class="center-head" style="margin-top:64px"><p class="eyebrow">Partner schools</p><h2 style="margin-top:8px">Where our students learn</h2><p class="lead" style="margin-top:10px">School names and logos are shown only with each school's permission, and never linked to a child.</p></div>
+    <div class="logos"><div class="logo-tile glass-card"><span>School logo 1</span></div><div class="logo-tile glass-card"><span>School logo 2</span></div><div class="logo-tile glass-card"><span>School logo 3</span></div><div class="logo-tile glass-card"><span>School logo 4</span></div><div class="logo-tile glass-card"><span>School logo 5</span></div><div class="logo-tile glass-card"><span>School logo 6</span></div></div>
+
+    <div class="center-head" style="margin-top:64px"><p class="eyebrow">Funding partners</p><h2 style="margin-top:8px">Organisations that make it possible</h2></div>
+    <div class="logos"><div class="logo-tile glass-card"><span>Partner logo 1</span></div><div class="logo-tile glass-card"><span>Partner logo 2</span></div><div class="logo-tile glass-card"><span>Partner logo 3</span></div><div class="logo-tile glass-card"><span>Partner logo 4</span></div></div>
+
+    <div class="glass-card donors" style="margin-top:56px">
+      <div class="center-head"><p class="eyebrow">Our supporters</p><h2 style="margin-top:8px">Thank you</h2></div>
+      <div class="names"><span>Grace W.</span><span>St. Mark's Church group</span><span>Daniel O.</span><span>The Kimani family</span><span>Anonymous</span><span>Isiolo Teachers Sacco</span><span>Amina H.</span><span>Anonymous</span></div>
+      <p style="text-align:center;color:var(--muted);font-size:13.5px;margin-top:10px">Sample names. Donors choose whether to be listed.</p>
+    </div>
+  </div><div class="wrap"><p class="note"><b>Why:</b> Joseph's idea (15 Nov): one page for schools to partner, funders to partner and donors to give, with logos and supporters shown. Schools appear only with permission and never next to a child (safety). It also feeds the funding engine: funders see who already trusts the Foundation.</p></div></section>
+</div>
+
 <!-- ================= GET INVOLVED ================= -->
 <div class="page" id="p-involved">
   <div class="pagehead"><div class="wrap"><p class="eyebrow">Get involved</p><h1 style="margin-top:8px;font-size:clamp(32px,5vw,48px)">Partners, donors, volunteers and well-wishers: join us.</h1></div></div>
@@ -607,7 +678,7 @@ body[data-font="poppins"]{--display:"Poppins",system-ui,sans-serif;--body:"Nunit
     <div class="cols">
       <div><b style="font-family:var(--display);color:#fff;font-size:18px">Queen of Peace Hope Foundation</b><p style="margin-top:8px">Educate. Protect. Empower.<br>Isiolo County, Kenya</p></div>
       <div><h4>Explore</h4><ul><li><a href="#about">About</a></li><li><a href="#programmes">Our work</a></li><li><a href="#impact">Impact</a></li></ul></div>
-      <div><h4>Help</h4><ul><li><a href="#sponsor">Sponsor a child</a></li><li><a href="#involved">Get involved</a></li><li><a href="#about">Safeguarding</a></li></ul></div>
+      <div><h4>Help</h4><ul><li><a href="#sponsor">Sponsor a child</a></li><li><a href="#partners">Partner schools</a></li><li><a href="#involved">Get involved</a></li><li><a href="#about">Safeguarding</a></li></ul></div>
       <div><h4>Contact</h4><ul><li>Email: to confirm</li><li>Isiolo County, Kenya</li></ul></div>
     </div>
     <div class="fine"><span>A company limited by guarantee, registered in Kenya (number to add). Sister organisation: Queen of Peace Initiative.</span><span>Photos: Wikimedia Commons, CC BY-SA / public domain placeholders · <a href="credits.html" style="text-decoration:underline">credits</a></span></div>
@@ -616,7 +687,7 @@ body[data-font="poppins"]{--display:"Poppins",system-ui,sans-serif;--body:"Nunit
 </footer>
 
 <script>
-const pages=['home','about','programmes','impact','involved','sponsor'];
+const pages=['home','about','programmes','impact','partners','involved','sponsor'];
 function show(){const h=(location.hash||'#home').slice(1);const p=pages.includes(h)?h:'home';
   document.querySelectorAll('.page').forEach(el=>el.classList.toggle('active',el.id==='p-'+p));
   document.querySelectorAll('nav a[data-p]').forEach(a=>a.classList.toggle('on',a.dataset.p===p&&p!=='sponsor'));
@@ -641,7 +712,7 @@ function observe(){document.querySelectorAll('.page.active .reveal:not(.in), .pa
 observe();addEventListener('hashchange',()=>setTimeout(observe,50));
 setTimeout(()=>{const hb=document.getElementById('herobar');if(hb)hb.style.width='38%'},400);
 /* header shrink + scroll progress + hero parallax */
-const hdr=document.querySelector('header'),sbar=document.getElementById('sbar'),heroImg=document.querySelector('.hero img');
+const hdr=document.querySelector('header'),sbar=document.getElementById('sbar'),heroImg=document.querySelector('.hero .slides');
 addEventListener('scroll',()=>{const y=scrollY,h=document.documentElement.scrollHeight-innerHeight;hdr.classList.toggle('scrolled',y>20);sbar.style.width=(h>0?100*y/h:0)+'%';
   if(heroImg&&!reduce&&y<900)heroImg.style.translate='0 '+(y*0.25)+'px';},{passive:true});
 /* subtle 3D tilt on programme cards */
@@ -658,6 +729,14 @@ if(matchMedia('(hover:hover)').matches&&!matchMedia('(prefers-reduced-motion: re
       if(d<range+r.width/2){m.style.transform=`translate(${dx*pull}px,${dy*pull}px) scale(1.04)`;m.style.boxShadow='0 14px 28px #b5452b55'}else{m.style.transform='';m.style.boxShadow=''}},{passive:true});});}
 document.querySelectorAll('.chart, .kpi').forEach(el=>el.classList.add('reveal'));
 setTimeout(()=>{if(typeof observe==='function')observe()},60);
+</script>
+
+<script>
+(function(){const imgs=[...document.querySelectorAll('.slides img')],dots=document.getElementById('hdots'),cr=document.getElementById('hcredit');if(!imgs.length)return;
+ imgs.forEach((_,i)=>{const d=document.createElement('i');if(i===0)d.className='on';dots.appendChild(d)});let k=0;
+ const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;if(reduce)return;
+ setInterval(()=>{if(document.hidden)return;imgs[k].classList.remove('on');dots.children[k].classList.remove('on');k=(k+1)%imgs.length;imgs[k].classList.add('on');dots.children[k].classList.add('on');cr.textContent=imgs[k].dataset.credit;},6000);})();
+document.querySelectorAll('[data-b]').forEach(b=>b.onclick=()=>{document.body.dataset.bg=b.dataset.b;document.querySelectorAll('[data-b]').forEach(x=>x.setAttribute('aria-pressed',x===b));});
 </script>
 </body>
 </html>
