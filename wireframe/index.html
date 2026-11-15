@@ -8,12 +8,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Saira:wght@500;600;700&display=swap">
 <style>
-/* Proposed palette (no Foundation colours chosen yet): QPI's sunrise orange carried over as the family link, a deep dusk ink, acacia green for "hope", warm sand for quiet sections */
+/* Proposed palette, inspired by northern Kenya: laterite red earth, acacia green, savanna gold, dusk ink, warm sand, and a little sky. Not the national flag (keeps the Foundation non-political). All to be confirmed with the team */
 :root{
-  --ink:#14232b; --muted:#5d6a70; --line:#e6e1da; --bg:#ffffff; --sand:#f7f3ee; --sand-2:#efe7dc;
-  --sun:#e5620a; --sun-ink:#b54b05; --sun-soft:#fdeee2; --acacia:#2f6b4f; --acacia-soft:#e3efe8;
+  --ink:#1d2528; --muted:#5f6a6c; --line:#e7ded1; --bg:#fffdfa; --sand:#f6efe4; --sand-2:#eee2d1;
+  --sun:#b5452b; --sun-ink:#93361f; --sun-soft:#f8e6df; --acacia:#3f6b3a; --acacia-soft:#e4eedf;
+  --gold:#d9a441; --gold-soft:#f8ecd2; --sky:#4f8fb8;
   --display:"Saira","Segoe UI",system-ui,sans-serif; --body:"Inter",system-ui,-apple-system,sans-serif;
   --wrap:1120px;
+  --beads:linear-gradient(90deg,var(--sun) 0 18%,var(--gold) 18% 30%,var(--acacia) 30% 52%,var(--ink) 52% 64%,#fff 64% 70%,var(--sun) 70% 84%,var(--sky) 84% 100%);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -26,6 +28,7 @@ h2{font-size:clamp(26px,3.6vw,38px);font-weight:600}
 h3{font-size:19px;font-weight:600}
 p{margin:0}
 .wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.eyebrow::before{content:"";display:inline-block;width:22px;height:4px;border-radius:2px;background:var(--beads);margin-right:10px;vertical-align:middle}
 .eyebrow{font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--sun-ink)}
 .lead{font-size:18px;color:var(--muted);max-width:60ch}
 section{padding-block:80px}
@@ -40,10 +43,11 @@ section{padding-block:80px}
 .wfbar button{background:#ffffff1f;color:#fff;border:0;border-radius:50px;padding:5px 14px;font:inherit;cursor:pointer}
 .wfbar button[aria-pressed="true"]{background:var(--sun)}
 /* header */
+header::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:4px;background:var(--beads)}
 header{position:sticky;top:0;z-index:20;background:#fffffff2;backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
 header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.mark{width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 50% 62%,var(--sun) 0 42%,transparent 43%),var(--sun-soft);border:2px dashed #e5620a66;flex:none}
+.mark{width:42px;height:42px;flex:none}
 .logo b{font-family:var(--display);font-size:17px;line-height:1.05;display:block}
 .logo small{font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
 nav ul{list-style:none;display:flex;gap:4px;margin:0;padding:0;flex-wrap:wrap}
@@ -53,15 +57,16 @@ nav a.on,nav a:hover{background:var(--sand)}
 /* hero */
 .hero{position:relative;color:#fff;min-height:620px;display:flex;align-items:flex-end;padding:0}
 .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#14232b10 20%,#14232bcc 100%)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#1d252800 15%,#1d2528b3 70%,#1d2528e6 100%),linear-gradient(90deg,#93361f55,transparent 60%)}
 .hero .wrap{position:relative;z-index:1;padding-block:90px 70px}
-.hero .eyebrow{color:#ffd2b0}
+.hero .eyebrow{color:var(--gold)}
 .hero p.lead{color:#f1ece6;margin-top:16px}
 .hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
 .hero .credit{position:absolute;right:16px;bottom:10px;z-index:1;font-size:11px;color:#ffffffb3}
 /* pillars */
 .pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:40px}
 .pillar{border-top:3px solid var(--sun);padding-top:18px}
+.pillar:nth-child(3){border-color:var(--gold)!important}
 .pillar:nth-child(2){border-color:var(--acacia)}
 .pillar:nth-child(3){border-color:var(--ink)}
 .pillar p{color:var(--muted);margin-top:8px}
@@ -75,22 +80,25 @@ nav a.on,nav a:hover{background:var(--sand)}
 .tags span{background:#fff;border:1px solid var(--line);border-radius:50px;padding:9px 16px;font-size:15px}
 /* programmes */
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin-top:40px}
-.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:10px}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:10px;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-3px);box-shadow:0 10px 24px #1d252814}
+.card .ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--sun-soft);color:var(--sun)}
+.card:nth-child(2) .ic{background:var(--gold-soft);color:#9a6b12}.card:nth-child(3) .ic{background:var(--acacia-soft);color:var(--acacia)}.card:nth-child(5) .ic{background:#e3eef6;color:var(--sky)}
 .card .n{font-family:var(--display);font-weight:700;color:var(--sun);font-size:15px}
 .card p{color:var(--muted);font-size:15px}
 /* impact */
 .impact{background:var(--ink);color:#fff}
 .impact .lead{color:#c9d3d6}
 .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:40px}
-.stat b{display:block;font-family:var(--display);font-size:44px;font-weight:700;font-variant-numeric:tabular-nums;color:#ffd2b0}
+.stat b{display:block;font-family:var(--display);font-size:44px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--gold)}
 .stat span{color:#c9d3d6;font-size:14.5px}
 .progress{margin-top:36px;background:#ffffff1f;border-radius:50px;height:12px;overflow:hidden}
-.progress i{display:block;height:100%;width:38%;background:var(--sun);border-radius:50px}
+.progress i{display:block;height:100%;width:38%;background:linear-gradient(90deg,var(--sun),var(--gold));border-radius:50px}
 .sample{display:inline-block;font-size:12px;background:#ffffff26;border-radius:50px;padding:2px 10px;margin-left:8px;vertical-align:middle}
 /* money trail */
 .trail{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:40px;counter-reset:s}
 .step{background:#fff;border-radius:16px;padding:18px;border:1px solid var(--line);position:relative}
-.step::before{counter-increment:s;content:counter(s);font-family:var(--display);font-weight:700;color:#fff;background:var(--acacia);width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-size:14px;margin-bottom:10px}
+.step::before{counter-increment:s;content:counter(s);font-family:var(--display);font-weight:700;color:#fff;background:var(--sun);width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-size:14px;margin-bottom:10px}
 .step p{font-size:14.5px;color:var(--muted);margin-top:4px}
 /* where we work */
 .map{background:#fff;border-radius:20px;border:1px solid var(--line);padding:18px;display:flex;justify-content:center}
@@ -110,7 +118,7 @@ nav a.on,nav a:hover{background:var(--sand)}
 .give{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:36px}
 .tier{border-radius:18px;padding:24px;background:#fff;border:1px solid var(--line)}
 .tier b{font-family:var(--display);font-size:30px;display:block}
-.tier.featured{border:2px solid var(--sun);background:var(--sun-soft)}
+.tier.featured{border:2px solid var(--sun);background:linear-gradient(160deg,var(--sun-soft),var(--gold-soft))}
 .ways{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
 .ways span{background:var(--sand);border-radius:50px;padding:8px 16px;font-size:14.5px;font-weight:500}
 /* page heads */
@@ -129,8 +137,9 @@ nav a.on,nav a:hover{background:var(--sand)}
 .form input,.form select,.form textarea{width:100%;font:inherit;padding:11px 14px;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--ink)}
 .ph-box{border:2px dashed #c9bfb2;border-radius:16px;padding:22px;color:var(--muted);text-align:center;font-size:14.5px;background:repeating-linear-gradient(45deg,transparent 0 12px,#f2ece480 12px 24px)}
 /* footer */
-footer{background:var(--ink);color:#c9d3d6;padding-block:56px 30px;font-size:14.5px}
+footer{position:relative;background:var(--ink);color:#c9d3d6;padding-block:56px 30px;font-size:14.5px}
 footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+footer::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:var(--beads)}
 footer h4{color:#fff;font-size:15px;margin-bottom:10px}
 footer ul{list-style:none;margin:0;padding:0}
 footer li{margin:6px 0}
@@ -164,7 +173,7 @@ body.notes .note{display:block}
 
 <header>
   <div class="wrap">
-    <a class="logo" href="#home"><span class="mark" aria-hidden="true"></span><span><b>Queen of Peace<br>Hope Foundation</b><small>Isiolo County · Kenya</small></span></a>
+    <a class="logo" href="#home"><svg class="mark" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="var(--sand)" stroke="var(--sun)" stroke-width="1.5"/><circle cx="24" cy="27" r="9" fill="var(--gold)"/><path d="M6 33h36" stroke="var(--sun)" stroke-width="2" stroke-linecap="round"/><path d="M15 33c0-5 3-7 9-8 6 1 9 3 9 8" fill="none" stroke="var(--acacia)" stroke-width="0"/><path d="M24 33V22M17 21c3-2 11-2 14 0" stroke="var(--acacia)" stroke-width="2.4" stroke-linecap="round" fill="none"/><ellipse cx="24" cy="19.5" rx="10" ry="3.2" fill="var(--acacia)"/></svg><span><b>Queen of Peace<br>Hope Foundation</b><small>Logo placeholder · to be replaced by Cliffe</small></span></a>
     <nav id="nav"><button class="menu" id="menubtn" aria-expanded="false">Menu</button>
       <ul>
         <li><a href="#home" data-p="home">Home</a></li>
@@ -188,7 +197,7 @@ body.notes .note{display:block}
       <h1>Every child deserves<br>a future.</h1>
       <p class="lead">We help vulnerable children across Isiolo County get to school, stay safe and grow into confident, independent young people.</p>
       <div class="ctas"><a class="btn btn-sun" href="#sponsor">Sponsor a child</a><a class="btn btn-line" href="#programmes">See our work</a></div>
-      <p class="note"><b>Why this hero:</b> Cliffe's own lines lead ("Every child deserves… a future", "Educate. Protect. Empower."). A rainbow over acacia land says "hope" without showing any child, so no consent is needed. One action only: Sponsor a child.</p>
+      <p class="note"><b>Colours and logo:</b> a proposal inspired by northern Kenya (red earth, acacia, savanna gold, dusk), with a thin bead-colour band as a quiet nod to the region's beadwork. The sun-over-acacia logo is a placeholder: Cliffe is designing the real one.</p><p class="note"><b>Why this hero:</b> Cliffe's own lines lead ("Every child deserves… a future", "Educate. Protect. Empower."). A rainbow over acacia land says "hope" without showing any child, so no consent is needed. One action only: Sponsor a child.</p>
     </div>
     <span class="credit">Photo: Daniel Case, CC BY-SA 4.0 (placeholder)</span>
   </section>
@@ -226,11 +235,11 @@ body.notes .note{display:block}
       <p class="eyebrow">Our work</p>
       <h2 style="margin-top:8px">Five programmes, one promise: education and protection go hand in hand.</h2>
       <div class="cards">
-        <div class="card"><span class="n">01</span><h3>Education sponsorship</h3><p>Fees, uniforms, books and essentials for vulnerable and promising students.</p></div>
-        <div class="card"><span class="n">02</span><h3>Girls' education</h3><p>Keeping girls in school, preventing early marriage and FGM, building leaders.</p></div>
-        <div class="card"><span class="n">03</span><h3>Child protection and safe care</h3><p>With authorities and approved care providers, for children facing abuse or unsafe homes.</p></div>
-        <div class="card"><span class="n">04</span><h3>Family and community</h3><p>Parents, elders, women and faith leaders creating safer homes for children.</p></div>
-        <div class="card"><span class="n">05</span><h3>Mentorship and talent</h3><p>Career guidance, leadership, digital literacy and life skills.</p></div>
+        <div class="card"><span class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M7 9v5c0 1.5 2.2 3 5 3s5-1.5 5-3V9"/></svg></span><span class="n">01</span><h3>Education sponsorship</h3><p>Fees, uniforms, books and essentials for vulnerable and promising students.</p></div>
+        <div class="card"><span class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3.5"/><path d="M5 21c1-4 3.5-6 7-6s6 2 7 6"/></svg></span><span class="n">02</span><h3>Girls' education</h3><p>Keeping girls in school, preventing early marriage and FGM, building leaders.</p></div>
+        <div class="card"><span class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></svg></span><span class="n">03</span><h3>Child protection and safe care</h3><p>With authorities and approved care providers, for children facing abuse or unsafe homes.</p></div>
+        <div class="card"><span class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></span><span class="n">04</span><h3>Family and community</h3><p>Parents, elders, women and faith leaders creating safer homes for children.</p></div>
+        <div class="card"><span class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.8z"/></svg></span><span class="n">05</span><h3>Mentorship and talent</h3><p>Career guidance, leadership, digital literacy and life skills.</p></div>
       </div>
       <p class="note"><b>Source:</b> Cliffe's five programmes. "Safe Homes" is renamed "safe care" so it never reads as the Foundation running a children's home, which Kenyan law restricts (Children Act 2022); his own text already says "approved care providers".</p>
     </div>
