@@ -340,7 +340,6 @@ body[data-font="poppins"]{--display:"Poppins",system-ui,sans-serif;--body:"Nunit
 .names{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;margin-top:20px;font-family:var(--display);font-size:19px}
 body[data-font="fraunces"] h1,body[data-font="fraunces"] h2{letter-spacing:-.015em;font-weight:600}
 /* background options */
-body[data-bg="photo"] .bg{background:url(img/bg-kenya-landscape.jpg) center/cover no-repeat}
 body[data-bg="photo"] .bg::after{background:linear-gradient(180deg,#fbf6eecc,#f3e9dab3);mix-blend-mode:normal;opacity:1}
 body[data-bg="photo"] .orb{display:none}
 body[data-bg="colours"] .bg{background:linear-gradient(180deg,#fbf6ee,#f4ece0)}
@@ -383,7 +382,6 @@ body[data-bg="beads"] .orb{opacity:.3}
 .orb{display:none}
 .bg::after{background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .2  0 0 0 0 .14  0 0 0 0 .08  0 0 0 .12 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")!important;opacity:1!important;mix-blend-mode:multiply}
 body[data-bg="none"] .bg{background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><g opacity='.14'><rect y='0' width='240' height='26' fill='%23b5452b'/><rect y='30' width='240' height='6' fill='%231d2528'/><rect y='40' width='240' height='3' fill='%23d9a441'/><rect y='120' width='240' height='14' fill='%233f6b3a'/><rect y='138' width='240' height='4' fill='%231d2528'/><rect y='146' width='240' height='10' fill='%23b5452b'/><rect y='200' width='240' height='5' fill='%23d9a441'/><rect y='208' width='240' height='2' fill='%231d2528'/></g></svg>") 0 0/240px 240px repeat,linear-gradient(180deg,#f7efe2,#efe3cf)}
-body[data-bg="photo"] .bg{background:linear-gradient(180deg,#fbf4e8b3,#f3e7d4cc),url(img/ololokwe-a2-road.jpg) center 30%/cover no-repeat}
 body[data-bg="photo"] .bg::after{mix-blend-mode:multiply}
 body[data-bg="colours"] .bg{background:linear-gradient(180deg,#f6eee1,#efe4d1)}
 body[data-bg="colours"] .bg::before{content:"";position:absolute;inset:-20%;transform:rotate(-8deg);background:linear-gradient(180deg,transparent 0 18%,#1d252824 18% 22%,#ffffff70 22% 23%,#9c3d2730 23% 30%,#ffffff70 30% 31%,#355c3130 31% 37%,transparent 37% 64%,#1d25281f 64% 66%,#9c3d2726 66% 70%,#355c3126 70% 73%,transparent 73%)}
@@ -423,7 +421,7 @@ header{background:#fffdf9!important;-webkit-backdrop-filter:none!important;backd
 .band::before{content:"";position:absolute;inset:0;z-index:-2;background-size:cover;background-position:center}
 .band::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#1d2528e6 0%,#1d2528b3 45%,#1d252840 100%)}
 .band-where::before{background-image:url(img/cliffe/goats-grazing-below-hills.jpg);background-position:center 55%}
-.band-give::before{background-image:url(img/cliffe/two-women-overlook.jpg);background-position:center 40%}
+.band-give::before{background-image:url(img/cliffe/green-ridge.jpg);background-position:center 40%}
 .band-give::after{background:linear-gradient(180deg,#1d252833 0%,#1d252899 45%,#1d2528e0 100%)}
 .band-give{padding-top:240px}
 .band .eyebrow{color:var(--gold)}
@@ -435,13 +433,24 @@ header{background:#fffdf9!important;-webkit-backdrop-filter:none!important;backd
 .band .note{color:#4a3f10}
 @media (max-width:900px){.band{padding-block:80px}.band::after{background:linear-gradient(180deg,#1d252859 0%,#1d2528b3 40%,#1d2528e6 100%)}.band-where{padding-top:200px}.band-give{padding-top:200px}}
 .founder{margin:20px 0 0}.founder img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 20%;border-radius:16px;box-shadow:0 10px 30px #1d252822}.founder figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+
+.heropick{border-left:1px solid #ffffff40;padding-left:10px}.heropick button{min-width:30px;padding:4px 8px}.keylink{color:inherit;text-decoration:underline;margin-left:4px;font-size:12px}
+.pnum{display:none}body.notes .pnum{display:grid;place-items:center;position:absolute;z-index:3;left:12px;top:12px;width:30px;height:30px;border-radius:50%;background:#ffd84d;color:#1d2528;font:700 14px/1 Inter,system-ui,sans-serif;box-shadow:0 4px 12px #0004}
+.band .pnum{left:16px;top:16px}.upd{position:relative}.founder{position:relative}.photo{position:relative}
+.slot{display:grid;place-content:center;gap:6px;text-align:center;min-height:300px;border:2px dashed #c9bba5;border-radius:18px;background:#fffaf2;padding:28px;color:var(--muted)}.slot b{color:var(--ink);font-size:16px}
+.topo{padding:12px;border-radius:18px}#topo{height:420px;border-radius:12px;z-index:0}
+.topo-key{display:flex;flex-wrap:wrap;gap:14px;font-size:12.5px;color:var(--muted);padding:10px 4px 2px}.topo-key i{display:inline-block;width:18px;height:0;border-top:3px solid #b5452b;vertical-align:middle;margin-right:6px}.topo-key .k-nb{border-top:2px dashed #1d2528}.topo-key .k-town{width:10px;height:10px;border:2px solid #fff;background:#1d2528;border-radius:50%;box-shadow:0 0 0 1px #1d2528}
+.leaflet-tooltip.tt-county{background:transparent;border:0;box-shadow:none;color:#1d2528;font-weight:600;font-size:11px;text-shadow:0 0 3px #fff,0 0 3px #fff}.leaflet-tooltip.tt-isiolo{background:#b5452b;border:0;color:#fff;font-weight:700;font-size:12px}.leaflet-tooltip.tt-county::before,.leaflet-tooltip.tt-isiolo::before{display:none}
+@media (max-width:900px){#topo{height:340px}}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 </head>
 <body data-font="fraunces" data-bg="none" class="notes">
 <div class="bg" aria-hidden="true"></div>
 <div class="scrollbar" id="sbar"></div>
 
-<div class="wfbar"><div class="wrap"><span>Website wireframe · draft · sample numbers, photos by Cliffe plus a few placeholders</span><span class="fontpick" role="group" aria-label="Font options">Fonts: <button data-f="jakarta" aria-pressed="false">A · Jakarta</button><button data-f="saira" aria-pressed="false">B · Saira + Inter</button><button data-f="fraunces" aria-pressed="true">C · Fraunces + Inter ★</button><button data-f="poppins" aria-pressed="false">D · Poppins + Nunito</button></span><button id="notesbtn" class="notes-toggle" aria-pressed="true"><span class="sw"></span>Design notes: ON</button></div></div>
+<div class="wfbar"><div class="wrap"><span>Website wireframe · draft · sample numbers · all photos by Cliffe, numbered</span><span class="fontpick heropick" role="group" aria-label="Hero photo">Hero photo: <button data-h="all" aria-pressed="true">▶ All</button><button data-h="0" aria-pressed="false">1</button><button data-h="1" aria-pressed="false">2</button><button data-h="2" aria-pressed="false">3</button><button data-h="3" aria-pressed="false">4</button><button data-h="4" aria-pressed="false">5</button><button data-h="5" aria-pressed="false">6</button><button data-h="6" aria-pressed="false">7</button><button data-h="7" aria-pressed="false">8</button><a href="credits.html#key" class="keylink">Photo key</a></span><span class="fontpick" role="group" aria-label="Font options">Fonts: <button data-f="jakarta" aria-pressed="false">A · Jakarta</button><button data-f="saira" aria-pressed="false">B · Saira + Inter</button><button data-f="fraunces" aria-pressed="true">C · Fraunces + Inter ★</button><button data-f="poppins" aria-pressed="false">D · Poppins + Nunito</button></span><button id="notesbtn" class="notes-toggle" aria-pressed="true"><span class="sw"></span>Design notes: ON</button></div></div>
 
 <header>
   <div class="wrap">
@@ -465,21 +474,23 @@ header{background:#fffdf9!important;-webkit-backdrop-filter:none!important;backd
 <div class="page active" id="p-home">
   <section class="hero">
     <div class="slides" aria-hidden="true">
-      <img class="on" src="img/cliffe/green-ridge.jpg" alt="" data-credit="Cliffe Wasike for the Foundation">
-      <img src="img/cliffe/women-building-fence.jpg" alt="" data-credit="Cliffe Wasike for the Foundation" loading="lazy">
-      <img src="img/rainbow-over-samburu-national-reserve-landscape-kenya.jpg" alt="" data-credit="Daniel Case, CC BY-SA 4.0" loading="lazy">
-      <img src="img/cliffe/woven-hut.jpg" alt="" data-credit="Cliffe Wasike for the Foundation" loading="lazy">
-      <img src="img/samburu-landscape-with-trees.jpg" alt="" data-credit="Daniel Case, CC BY-SA 4.0" loading="lazy">
-      <img src="img/ololokwe-a2-road.jpg" alt="" data-credit="Ninara, CC BY 2.0" loading="lazy">
+      <img class="on" src="img/cliffe/two-women-overlook.jpg" alt="" data-n="1" data-credit="Cliffe Wasike for the Foundation">
+      <img src="img/cliffe/green-ridge.jpg" alt="" data-n="2" data-credit="Cliffe Wasike for the Foundation" loading="lazy">
+      <img src="img/cliffe/women-building-fence.jpg" alt="" data-n="3" data-credit="Cliffe Wasike for the Foundation" loading="lazy">
+      <img src="img/cliffe/woven-hut.jpg" alt="" data-n="4" data-credit="Cliffe Wasike for the Foundation" loading="lazy">
+      <img src="img/cliffe/woman-gourds-fire.jpg" alt="" data-n="5" data-credit="Cliffe Wasike for the Foundation" loading="lazy">
+      <img src="img/cliffe/goats-grazing-below-hills.jpg" alt="" data-n="6" data-credit="Cliffe Wasike for the Foundation" loading="lazy">
+      <img src="img/cliffe/women-building-enclosure.jpg" alt="" data-n="7" data-credit="Cliffe Wasike for the Foundation" loading="lazy">
+      <img src="img/cliffe/boma-from-above.jpg" alt="" data-n="8" data-credit="Cliffe Wasike for the Foundation" loading="lazy">
     </div>
     <div class="wrap">
       <p class="eyebrow">Educate · Protect · Empower</p>
       <h1>Every child deserves<br>a future.</h1>
       <p class="lead">We help vulnerable children across Isiolo County get to school, stay safe and grow into confident, independent young people.</p>
       <div class="ctas"><a class="btn btn-sun magnet" href="#sponsor">Sponsor a child</a><a class="btn btn-glass" href="#impact">See our work</a></div>
-      <p class="note"><b>Colours and logo:</b> a proposal inspired by northern Kenya (red earth, acacia, savanna gold, dusk), with a thin bead-colour band as a quiet nod to the region's beadwork. The sun-over-acacia logo is a placeholder: Cliffe is designing the real one.</p><p class="note"><b>Why this hero:</b> Cliffe's own lines lead ("Every child deserves… a future", "Educate. Protect. Empower."). A rainbow over acacia land says "hope" without showing any child, so no consent is needed. One action only: Sponsor a child.</p>
+      <p class="note"><b>Colours and logo:</b> a proposal inspired by northern Kenya (red earth, acacia, savanna gold, dusk), with a thin bead-colour band as a quiet nod to the region's beadwork. The sun-over-acacia logo is a placeholder: Cliffe is designing the real one.</p><p class="note"><b>Why this hero:</b> Cliffe's own lines lead ("Every child deserves… a future", "Educate. Protect. Empower."). The slideshow uses only Cliffe's photos, numbered 1-8 in the top bar so you can pick the one to keep; Joseph's favourite is 1, the two women looking out over the hills. No child is shown. One action only: Sponsor a child.</p>
     </div>
-    <span class="credit">Photo: <span id="hcredit">Cliffe Wasike for the Foundation</span></span><div class="dots" id="hdots" aria-hidden="true"></div>
+    <span class="credit"><span id="hcredit">Photo 1 · Cliffe Wasike for the Foundation</span></span><div class="dots" id="hdots" aria-hidden="true"></div>
   </section>
   <div class="hero-card"><div class="wrap"><div class="glass"><div><b data-count="38" data-suffix="%">0%</b></div><div style="flex:1"><div style="font-weight:600;font-size:14.5px">raised for the January term <span style="color:var(--muted);font-weight:400">· sample</span></div><div class="bar"><i id="herobar"></i></div></div><a class="btn btn-sun magnet" href="#sponsor" style="padding:11px 24px">Give</a></div></div></div>
 
@@ -507,7 +518,7 @@ header{background:#fffdf9!important;-webkit-backdrop-filter:none!important;backd
         </div>
         <p class="note"><b>Source:</b> Cliffe's seven priority groups, word for word in meaning. Each child is assessed individually, never by community (his background doc). No community is named next to a harm (our rule).</p>
       </div>
-      <div class="photo-glass glass-card tilt-r"><div class="photo"><img src="img/public-classroom.jpg" alt="An empty classroom with wooden desks and blackboards" loading="lazy"><span class="credit">Artelnjeru, CC BY-SA 4.0 (placeholder)</span></div><img class="photo-map" src="img/kenya-outline-isiolo.svg" alt=""></div>
+      <div class="slot"><b>Photo slot</b><span>Waiting for a photo from Cliffe: a school or classroom scene (no children's faces).</span></div>
     </div>
   </section>
 
@@ -557,7 +568,7 @@ header{background:#fffdf9!important;-webkit-backdrop-filter:none!important;backd
     </div>
   </section>
 
-  <section class="band band-where">
+  <section class="band band-where"><span class="pnum">6</span>
     <div class="wrap split">
       <div>
         <div class="where-head"><img class="kenya-badge" src="img/kenya-outline-isiolo.svg" alt="Map of Kenya with Isiolo County highlighted"><div><p class="eyebrow">Where we work</p>
@@ -566,7 +577,7 @@ header{background:#fffdf9!important;-webkit-backdrop-filter:none!important;backd
         <p style="margin-top:20px"><a class="btn btn-line" href="#about">About the region</a></p>
         <p class="note"><b>Design:</b> one full-width photo band (Cliffe's photo of goats grazing below the hills) between calm white sections, the way elegant charity sites pace a page. <b>Source:</b> Cliffe's background document. The community-by-community challenges stay in our grant materials, not on the public site, so no community is shown as the problem.</p>
       </div>
-      <div><div class="video"><video controls preload="none" poster="img/isiolo-marsabit-highway.jpg"><source src="img/northern-kenya-480p.webm" type="video/webm"></video></div><p class="caption">Placeholder film: "Northern Kenya: from the forest to the desert", Xavier de Diego, CC BY-SA 3.0. To be replaced with the Foundation's own footage.</p></div>
+      <div><div class="video"><video controls preload="metadata"><source src="img/northern-kenya-480p.webm" type="video/webm"></video></div><p class="caption">Placeholder film: "Northern Kenya: from the forest to the desert", Xavier de Diego, CC BY-SA 3.0. To be replaced with the Foundation's own footage.</p></div>
     </div>
   </section>
 
@@ -574,15 +585,15 @@ header{background:#fffdf9!important;-webkit-backdrop-filter:none!important;backd
     <div class="wrap">
       <div style="display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap"><div><p class="eyebrow">Latest news</p><h2 style="margin-top:8px">What we've been doing.</h2></div><a class="btn btn-line" href="#impact">All updates</a></div>
       <div class="updates2">
-        <a class="upd glass-card" href="#impact" style="--img:url(img/cliffe/boma-from-above.jpg)"><time>Nov 2026 · sample</time><h3>The Foundation is registered</h3><p>Queen of Peace Hope Foundation can now work across Isiolo County and beyond.</p><span class="more">Read update →</span></a>
-        <a class="upd glass-card" href="#impact" style="--img:url(img/cliffe/woman-gourds-fire.jpg)"><time>Dec 2026 · sample</time><h3>Talking with families</h3><p>Meetings with parents and elders on keeping girls in school.</p><span class="more">Read update →</span></a>
-        <a class="upd glass-card" href="#impact" style="--img:url(img/yaaq-barsadi-isiolo-south-isiolo-kenya.jpg)"><time>Jan 2027 · sample</time><h3>Back to school</h3><p>Our students start the new term with fees paid and books in hand.</p><span class="more">Read update →</span></a>
+        <a class="upd glass-card" href="#impact" style="--img:url(img/cliffe/boma-from-above.jpg)"><span class="pnum">8</span><time>Nov 2026 · sample</time><h3>The Foundation is registered</h3><p>Queen of Peace Hope Foundation can now work across Isiolo County and beyond.</p><span class="more">Read update →</span></a>
+        <a class="upd glass-card" href="#impact" style="--img:url(img/cliffe/woman-gourds-fire.jpg)"><span class="pnum">5</span><time>Dec 2026 · sample</time><h3>Talking with families</h3><p>Meetings with parents and elders on keeping girls in school.</p><span class="more">Read update →</span></a>
+        <a class="upd glass-card" href="#impact"><time>Jan 2027 · sample</time><h3>Back to school</h3><p>Our students start the new term with fees paid and books in hand.</p><span class="more">Read update →</span></a>
       </div>
       <p class="note"><b>Why:</b> a live "what we're doing" feed was Joseph's idea; Cliffe writes an update in a simple form and it appears here only after Josephine approves it. Keeps the site alive without a developer.</p>
     </div>
   </section>
 
-  <section class="band band-give">
+  <section class="band band-give"><span class="pnum">2</span>
     <div class="wrap" style="text-align:center;max-width:760px">
       <p class="eyebrow">Sponsor a child, transform a future</p>
       <h2 style="margin-top:8px">Every child deserves protection. Every child deserves education.</h2>
@@ -600,15 +611,15 @@ header{background:#fffdf9!important;-webkit-backdrop-filter:none!important;backd
     <div><h3>Our mission</h3><p style="color:var(--muted);margin-top:8px">To provide vulnerable children with access to quality education, protection, mentorship and opportunities that enable them to become confident, independent and responsible members of society.</p>
     <h3 style="margin-top:28px">Our vision</h3><p style="color:var(--muted);margin-top:8px">A society where every child enjoys education, protection, dignity and equal opportunities to build a better future.</p>
     <h3 style="margin-top:28px">Our approach</h3><ul class="list"><li>Partnerships with schools, government, community leaders, families and development partners</li><li>Family-based care first, always in the child's best interest</li><li>Each child assessed individually, never by community</li><li>Respect for every community's culture, knowledge and resilience</li></ul></div>
-    <div><div class="photo-glass glass-card tilt-l"><div class="photo"><img src="img/cliffe/women-building-enclosure.jpg" alt="Women building a stick enclosure together in the sun" loading="lazy"><span class="credit">Photo: Cliffe Wasike for the Foundation</span></div><img class="photo-map" src="img/isiolo-outline.svg" alt=""></div>
+    <div><div class="photo-glass glass-card tilt-l"><div class="photo"><span class="pnum">7</span><img src="img/cliffe/women-building-enclosure.jpg" alt="Women building a stick enclosure together in the sun" loading="lazy"><span class="credit">Photo: Cliffe Wasike for the Foundation</span></div><img class="photo-map" src="img/isiolo-outline.svg" alt=""></div>
     <p class="quote" style="margin-top:28px">"Education is one of the most effective ways of breaking the cycle of poverty."</p></div>
   </div><div class="wrap"><p class="note"><b>Source:</b> mission, vision and approach from Cliffe's content; the headline line is from his background document ("protecting a child and educating a child must be treated as one responsibility").</p></div></section>
   <section class="sand"><div class="wrap two">
     <div><p class="eyebrow">Where we work</p><h2 style="margin-top:8px">Isiolo County</h2><p style="color:var(--muted);margin-top:14px">Home to Borana, Samburu, Turkana and Meru communities, alongside Somali and other families. Children here may face long distances to school, drought and livestock losses that strain family budgets, and pressures that pull girls out of class. Positive change is already led by elders, women, teachers and local groups.</p><p class="note"><b>Why:</b> describes needs and strengths together, as Cliffe's document asks ("not to portray any community as uniformly harmful").</p></div>
-    <div class="map-glass glass-card"><img src="img/kenya-outline-isiolo.svg" alt="Outline of Kenya with Isiolo County highlighted" loading="lazy"><span class="pin">Isiolo County</span></div>
-  </div><div class="wrap"><p class="caption">Boundaries: geoBoundaries and Natural Earth (public domain).</p></div></section>
+    <div class="topo glass-card"><div id="topo" role="img" aria-label="Topographic map of Isiolo County with neighbouring county borders"></div><div class="topo-key"><span><i class="k-is"></i>Isiolo County border</span><span><i class="k-nb"></i>Neighbouring counties</span><span><i class="k-town"></i>Isiolo town</span></div></div>
+  </div><div class="wrap"><p class="caption">Topographic map: © OpenStreetMap contributors, SRTM; map style © OpenTopoMap (CC BY-SA). County borders: geoBoundaries (public domain). Only the county town is marked; no villages.</p></div></section>
   <section><div class="wrap two">
-    <div><p class="eyebrow">Our people</p><h2 style="margin-top:8px">Founder and team</h2><p style="color:var(--muted);margin-top:14px">Founded by Josephine Ekiru, a peacebuilder from Isiolo and founder of the Queen of Peace Initiative, recipient of the 2021 Women Building Peace Award.</p><figure class="founder"><img src="img/cliffe/josephine-speaking.jpg" alt="Josephine Ekiru speaking into a microphone at a community meeting under acacia trees" loading="lazy"><figcaption>Josephine Ekiru at a community meeting. Photo: Cliffe Wasike for the Foundation</figcaption></figure><div class="ph-box" style="margin-top:20px">Board, team and volunteers: photos and roles to confirm with each person</div></div>
+    <div><p class="eyebrow">Our people</p><h2 style="margin-top:8px">Founder and team</h2><p style="color:var(--muted);margin-top:14px">Founded by Josephine Ekiru, a peacebuilder from Isiolo and founder of the Queen of Peace Initiative, recipient of the 2021 Women Building Peace Award.</p><figure class="founder"><span class="pnum">9</span><img src="img/cliffe/josephine-speaking.jpg" alt="Josephine Ekiru speaking into a microphone at a community meeting under acacia trees" loading="lazy"><figcaption>Josephine Ekiru at a community meeting. Photo: Cliffe Wasike for the Foundation</figcaption></figure><div class="ph-box" style="margin-top:20px">Board, team and volunteers: photos and roles to confirm with each person</div></div>
     <div><p class="eyebrow">Our safeguarding promise</p><h2 style="margin-top:8px">Children's safety comes first</h2><ul class="list"><li>We never publish a child's name, face, school or village</li><li>Stories are shared only with consent from the child and guardian</li><li>Concerns are reported to the right authorities</li><li>Every gift goes to the Foundation's own account</li></ul><div class="ph-box" style="margin-top:20px">Full child safeguarding policy (PDF): to be written and approved by the board</div></div>
   </div><div class="wrap"><p class="note"><b>Why:</b> funders and donors look for a safeguarding statement before giving; Cliffe raised consent and data protection on the call. Team photos and roles only with each person's OK. <b>Photos:</b> the founder photo and most photos on this site are Cliffe's own (15 Nov); children were cropped out or left out, and the founder photo goes live only with Josephine's OK.</p></div></section>
 </div>
@@ -768,7 +779,7 @@ header{background:#fffdf9!important;-webkit-backdrop-filter:none!important;backd
       <div><h4>Help</h4><ul><li><a href="#sponsor">Sponsor a child</a></li><li><a href="#partners">Partner schools</a></li><li><a href="#involved">Get involved</a></li><li><a href="#about">Safeguarding</a></li></ul></div>
       <div><h4>Contact</h4><ul><li>Email: to confirm</li><li>Isiolo County, Kenya</li></ul></div>
     </div>
-    <div class="fine"><span>A company limited by guarantee, registered in Kenya (number to add). Sister organisation: Queen of Peace Initiative.</span><span>Photos: Wikimedia Commons, CC BY-SA / public domain placeholders · <a href="credits.html" style="text-decoration:underline">credits</a></span></div>
+    <div class="fine"><span>A company limited by guarantee, registered in Kenya (number to add). Sister organisation: Queen of Peace Initiative.</span><span>Photos: Cliffe Wasike for the Foundation · <a href="credits.html">credits and photo key</a></span></div>
     <p class="note"><b>Why:</b> registration line and safeguarding link build trust; the QPI link keeps the family connection while the Foundation stands on its own (Cliffe, 13 Nov).</p>
   </div>
 </footer>
@@ -819,10 +830,15 @@ setTimeout(()=>{if(typeof observe==='function')observe()},60);
 </script>
 
 <script>
-(function(){const imgs=[...document.querySelectorAll('.slides img')],dots=document.getElementById('hdots'),cr=document.getElementById('hcredit');if(!imgs.length)return;
- imgs.forEach((_,i)=>{const d=document.createElement('i');if(i===0)d.className='on';dots.appendChild(d)});let k=0;
- const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;if(reduce)return;
- setInterval(()=>{if(document.hidden)return;imgs[k].classList.remove('on');dots.children[k].classList.remove('on');k=(k+1)%imgs.length;imgs[k].classList.add('on');dots.children[k].classList.add('on');cr.textContent=imgs[k].dataset.credit;},6000);})();
+(function(){const imgs=[...document.querySelectorAll('.slides img')],dots=document.getElementById('hdots'),cr=document.getElementById('hcredit'),btns=[...document.querySelectorAll('[data-h]')];if(!imgs.length)return;
+ imgs.forEach((_,i)=>{const d=document.createElement('i');if(i===0)d.className='on';dots.appendChild(d)});let k=0,timer=null;
+ const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ function show(n){imgs[k].classList.remove('on');dots.children[k].classList.remove('on');k=n;imgs[k].loading='eager';imgs[k].classList.add('on');dots.children[k].classList.add('on');cr.textContent='Photo '+imgs[k].dataset.n+' · '+imgs[k].dataset.credit;}
+ function stop(){if(timer)clearInterval(timer);timer=null}
+ function play(){stop();if(reduce)return;timer=setInterval(()=>{if(!document.hidden)show((k+1)%imgs.length)},6000)}
+ function press(v){btns.forEach(x=>x.setAttribute('aria-pressed',x.dataset.h===String(v)))}
+ btns.forEach(b=>b.onclick=()=>{if(b.dataset.h==='all'){press('all');play()}else{stop();show(+b.dataset.h);press(b.dataset.h)}});
+ const q=+new URLSearchParams(location.search).get('hero');if(q>=1&&q<=imgs.length){show(q-1);press(q-1)}else play();})();
 document.querySelectorAll('[data-b]').forEach(b=>b.onclick=()=>{document.body.dataset.bg=b.dataset.b;document.querySelectorAll('[data-b]').forEach(x=>x.setAttribute('aria-pressed',x===b));});
 </script>
 <script>
@@ -833,6 +849,17 @@ document.querySelectorAll('[data-b]').forEach(b=>b.onclick=()=>{document.body.da
 </script>
 <script>
 (function(){const hide=document.getElementById('nbhide'),nb=document.getElementById('notesbtn'),bn=document.getElementById('notesbanner');if(hide)hide.onclick=()=>nb.click();document.getElementById('nbx').onclick=()=>bn.style.visibility='hidden';setTimeout(()=>{bn.style.transition='opacity .6s';bn.style.opacity='0';setTimeout(()=>bn.style.visibility='hidden',700)},12000);})();
+</script>
+<script>
+(function(){let map=null;function init(){if(map||!window.L)return;const el=document.getElementById('topo');if(!el||!el.offsetWidth)return;
+ map=L.map(el,{scrollWheelZoom:false}).setView([0.9,38.4],7);
+ L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{subdomains:'abc',maxZoom:15,attribution:'© OpenStreetMap contributors, SRTM | style © OpenTopoMap (CC BY-SA) | borders: geoBoundaries'}).addTo(map);
+ fetch('img/isiolo-region.geojson').then(r=>r.json()).then(g=>{let is=null;L.geoJSON(g,{style:f=>f.properties.name==='Isiolo'?{color:'#b5452b',weight:3,fillColor:'#b5452b',fillOpacity:.1}:{color:'#1d2528',weight:1.5,dashArray:'5 5',fill:false},
+  onEachFeature:(f,l)=>{const me=f.properties.name==='Isiolo';if(me)is=l;l.bindTooltip(me?'Isiolo County':f.properties.name,{permanent:true,direction:'center',className:me?'tt-isiolo':'tt-county'})}}).addTo(map);
+  if(is)map.fitBounds(is.getBounds(),{padding:[40,40]});});
+ L.circleMarker([0.3546,37.5822],{radius:6,color:'#fff',weight:2,fillColor:'#1d2528',fillOpacity:1}).addTo(map).bindTooltip('Isiolo town',{direction:'right',offset:[8,0]});}
+ function tick(){setTimeout(()=>{init();if(map)map.invalidateSize()},350)}
+ addEventListener('hashchange',tick);addEventListener('load',tick);})();
 </script>
 </body>
 </html>
