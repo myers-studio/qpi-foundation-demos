@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex">
 <title>Queen of Peace Hope Foundation · Website wireframe</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Saira:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Saira:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Poppins:wght@500;600;700&family=Nunito+Sans:wght@400;600&display=swap">
 <style>
 /* Proposed palette, inspired by northern Kenya: laterite red earth, acacia green, savanna gold, dusk ink, warm sand, and a little sky. Not the national flag (keeps the Foundation non-political). All to be confirmed with the team */
 :root{
@@ -55,13 +55,13 @@ nav a{text-decoration:none;font-size:14.5px;font-weight:500;padding:8px 12px;bor
 nav a.on,nav a:hover{background:var(--sand)}
 .menu{display:none}
 /* hero */
-.hero{position:relative;color:#fff;min-height:620px;display:flex;align-items:flex-end;padding:0}
-.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#1d252800 15%,#1d2528b3 70%,#1d2528e6 100%),linear-gradient(90deg,#93361f55,transparent 60%)}
-.hero .wrap{position:relative;z-index:1;padding-block:90px 70px}
+.hero{position:relative;color:#fff;min-height:640px;display:flex;align-items:center;justify-content:center;padding:0;overflow:hidden;isolation:isolate;text-align:center}
+.hero img{position:absolute;left:0;top:-6%;width:100%;height:112%;object-fit:cover;z-index:-2}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,#1d252800 15%,#1d2528b3 70%,#1d2528e6 100%),linear-gradient(90deg,#93361f55,transparent 60%)}
+.hero .wrap{position:relative;z-index:1;padding-block:110px 130px;display:flex;flex-direction:column;align-items:center}
 .hero .eyebrow{color:var(--gold)}
-.hero p.lead{color:#f1ece6;margin-top:16px}
-.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.hero p.lead{color:#f1ece6;margin:16px auto 0}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px;justify-content:center}
 .hero .credit{position:absolute;right:16px;bottom:10px;z-index:1;font-size:11px;color:#ffffffb3}
 /* pillars */
 .pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:40px}
@@ -177,7 +177,7 @@ header.scrolled .wrap{padding-block:9px}
 .hero img{transform:scale(1.08);transform-origin:center;will-change:transform;animation:drift 22s ease-in-out infinite alternate}
 @keyframes drift{from{transform:scale(1.08) translate3d(0,0,0)}to{transform:scale(1.14) translate3d(-1.5%,-1%,0)}}
 .hero-card{position:relative;z-index:2;margin-top:-56px;margin-bottom:-10px}
-.hero-card .glass{max-width:520px;margin-left:auto;background:#ffffffeb;backdrop-filter:blur(10px);border-radius:20px;padding:18px 22px;box-shadow:0 24px 48px #1d252829,0 2px 6px #1d252814;display:flex;gap:18px;align-items:center}
+.hero-card .glass{max-width:580px;margin:0 auto;background:#ffffffeb;backdrop-filter:blur(10px);border-radius:20px;padding:18px 22px;box-shadow:0 24px 48px #1d252829,0 2px 6px #1d252814;display:flex;gap:18px;align-items:center}
 .hero-card b{font-family:var(--display);font-size:30px;color:var(--sun);font-variant-numeric:tabular-nums}
 .hero-card .bar{flex:1;height:8px;border-radius:8px;background:var(--sand-2);overflow:hidden;margin-top:6px}
 .hero-card .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--sun),var(--gold));border-radius:8px;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
@@ -211,12 +211,108 @@ header.scrolled .wrap{padding-block:9px}
 .progress.in i{width:38%}
 @media (max-width:900px){.hero-card .glass{margin:0 auto}.photo.framed::before{inset:12px -10px -12px 10px}}
 @media (prefers-reduced-motion:reduce){.hero img{animation:none}.js .reveal{opacity:1;transform:none;transition:none}.progress i,.hero-card .bar i{transition:none}}
+
+/* ---- v4: designed background + glass ---- */
+body{background:var(--sand)}
+.bg{position:fixed;inset:0;z-index:-5;pointer-events:none;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='900' height='700' viewBox='0 0 900 700'><g fill='none' stroke='%23b5452b' stroke-opacity='.10' stroke-width='1.2'><path d='M-50 120 C150 60 300 180 480 130 S760 40 950 110'/><path d='M-50 170 C150 110 300 230 480 180 S760 90 950 160'/><path d='M-50 220 C160 165 310 285 490 232 S770 145 950 212'/><path d='M-50 330 C120 290 280 400 460 350 S760 260 950 330'/><path d='M-50 380 C130 340 290 450 470 402 S770 312 950 382'/><path d='M-50 520 C170 470 330 590 520 530 S790 450 950 515'/><path d='M-50 570 C180 520 340 640 530 582 S800 502 950 567'/></g><g fill='%233f6b3a' fill-opacity='.07'><circle cx='720' cy='560' r='70'/><circle cx='140' cy='300' r='44'/></g></svg>") center/900px repeat,linear-gradient(180deg,#fbf6ee,#f3e9da);}
+.bg::after{content:"";position:absolute;inset:0;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");opacity:.9;mix-blend-mode:multiply}
+.orb{position:absolute;border-radius:50%;filter:blur(60px);opacity:.55}
+.o1{width:46vw;height:46vw;left:-12vw;top:30vh;background:#e9a07c}
+.o2{width:38vw;height:38vw;right:-10vw;top:-8vh;background:#e8c779}
+.o3{width:34vw;height:34vw;right:10vw;bottom:-14vh;background:#a9c79a}
+@media (prefers-reduced-motion:no-preference){.o1{animation:float1 26s ease-in-out infinite alternate}.o2{animation:float2 30s ease-in-out infinite alternate}.o3{animation:float1 34s ease-in-out infinite alternate-reverse}}
+@keyframes float1{to{transform:translate3d(6vw,-4vh,0) scale(1.08)}}
+@keyframes float2{to{transform:translate3d(-5vw,6vh,0) scale(.94)}}
+section,.sand{background:transparent}
+section.sand{background:linear-gradient(180deg,#ffffff00,#ffffff59 20%,#ffffff59 80%,#ffffff00)}
+.pagehead{background:linear-gradient(180deg,#ffffff8c,#ffffff00)}
+.glass-card{position:relative;background:linear-gradient(145deg,#ffffffc7,#ffffff8c)!important;-webkit-backdrop-filter:blur(18px) saturate(150%);backdrop-filter:blur(18px) saturate(150%);border:1px solid #ffffffb3!important;box-shadow:0 1px 0 #ffffffe6 inset,0 -1px 0 #ffffff40 inset,0 18px 40px -18px #3a2a1a40,0 2px 6px #3a2a1a0f;border-radius:20px}
+.glass-card::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(135deg,#ffffffcc,#ffffff00 40%,#d9a44166 75%,#b5452b40);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.glass-card::after{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(120% 60% at 10% 0%,#ffffff73,transparent 55%);pointer-events:none}
+.pillar.glass-card{padding:22px;border-top-width:1px!important}
+.pillar.glass-card::after{background:linear-gradient(90deg,var(--sun),var(--gold)) top/100% 3px no-repeat,radial-gradient(120% 60% at 10% 0%,#ffffff73,transparent 55%)}
+.pillar:nth-child(2).glass-card::after{background:linear-gradient(90deg,var(--acacia),var(--gold)) top/100% 3px no-repeat,radial-gradient(120% 60% at 10% 0%,#ffffff73,transparent 55%)}
+.pillar:nth-child(3).glass-card::after{background:linear-gradient(90deg,var(--gold),var(--sun)) top/100% 3px no-repeat,radial-gradient(120% 60% at 10% 0%,#ffffff73,transparent 55%)}
+.tags span{background:#ffffffa6;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-color:#ffffffcc}
+header{background:#fffaf2b8!important;-webkit-backdrop-filter:blur(16px) saturate(160%);backdrop-filter:blur(16px) saturate(160%)}
+.btn-glass{color:#fff;background:#ffffff26;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:inset 0 0 0 1px #ffffff80}
+.btn-glass:hover{background:#ffffff40}
+.impact{background:linear-gradient(160deg,#1d2528f2,#2a2f2bf2)!important}
+.hero-card .glass{background:linear-gradient(145deg,#ffffffd9,#ffffffa6);border:1px solid #ffffffcc}
+/* ---- v4: charts ---- */
+.pill-s{display:inline-block;font-size:12px;background:var(--gold-soft);color:#7a5410;border-radius:50px;padding:2px 10px;vertical-align:middle}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.kpi{padding:20px}
+.kpi span{display:block;font-size:13.5px;color:var(--muted)}
+.kpi b{display:block;font-family:var(--display);font-size:36px;font-weight:700;color:var(--sun-ink);font-variant-numeric:tabular-nums;margin-top:4px}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--acacia)}
+.charts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:22px}
+.chart{margin:0;padding:22px;min-width:0}
+.chart.wide{grid-column:1 / -1}
+.chart figcaption p{color:var(--muted);font-size:14px;margin-top:2px}
+svg.line{width:100%;height:auto;margin-top:12px;overflow:visible}
+svg.line .grid line{stroke:#1d25281a}
+svg.line .ax text{font-size:11px;fill:var(--muted);text-anchor:end}
+svg.line .target{stroke:var(--acacia);stroke-dasharray:5 5;stroke-width:1.5}
+svg.line .tlabel{font-size:11px;fill:var(--acacia);font-weight:600}
+svg.line .area{fill:url(#none);fill:#b5452b24}
+svg.line .stroke{fill:none;stroke:var(--sun);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+svg.line .pts circle{fill:#fff;stroke:var(--sun);stroke-width:2.5;cursor:pointer}
+svg.line .pts circle:hover{r:7}
+svg.line .end{font-size:12.5px;font-weight:700;fill:var(--sun-ink)}
+.js .draw{stroke-dasharray:900;stroke-dashoffset:900;transition:stroke-dashoffset 1.8s cubic-bezier(.2,.8,.2,1)}
+.js .in .draw,.js .chart.in .draw{stroke-dashoffset:0}
+.js .draw-area{opacity:0;transition:opacity 1s .8s}.js .chart.in .draw-area{opacity:1}
+.funnel{display:grid;gap:10px;margin-top:16px}
+.funnel div{display:grid;grid-template-columns:150px 1fr 42px;gap:10px;align-items:center;font-size:14px}
+.funnel i{height:14px;border-radius:8px;background:linear-gradient(90deg,var(--sun),var(--gold));width:0;transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+.funnel i.later{background:repeating-linear-gradient(45deg,#1d252814 0 6px,transparent 6px 12px);width:100%!important;opacity:.6}
+.chart.in .funnel i{width:var(--w)}
+.funnel b{font-family:var(--display);text-align:right;font-variant-numeric:tabular-nums}
+.cols3{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;align-items:end;height:200px;margin-top:16px}
+.cols3 div{display:flex;flex-direction:column;align-items:center;gap:8px;height:100%;justify-content:flex-end}
+.cols3 i{width:100%;max-width:56px;height:0;border-radius:10px 10px 4px 4px;background:linear-gradient(180deg,var(--acacia),#6d9a5f);position:relative;transition:height 1.2s cubic-bezier(.2,.8,.2,1)}
+.cols3 .goal i{background:repeating-linear-gradient(45deg,#3f6b3a33 0 6px,transparent 6px 12px);border:1.5px dashed var(--acacia)}
+.chart.in .cols3 i{height:calc(var(--h) * 1.5)}
+.cols3 b{position:absolute;top:-22px;left:50%;transform:translateX(-50%);font-size:12.5px;font-family:var(--display)}
+.cols3 span{font-size:12.5px;color:var(--muted)}
+.stack{display:flex;height:22px;border-radius:12px;overflow:hidden;margin-top:18px;gap:2px;background:#ffffff80}
+.stack i{width:0;background:var(--c);transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+.chart.in .stack i{width:var(--w)}
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px;font-size:13.5px}
+.legend em{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:middle}
+/* ---- v4: give + input + fonts ---- */
+.magnet{transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .2s;will-change:transform}
+.givebar{display:none}
+.input-btn{position:fixed;right:max(18px,env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:40;display:flex;align-items:center;gap:8px;background:#1f8a4ce6;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#fff;text-decoration:none;font-weight:600;font-size:14.5px;border-radius:50px;padding:12px 18px;box-shadow:0 12px 28px #1d25283d;transition:transform .2s}
+.input-btn:hover{transform:translateY(-2px)}
+body[data-font="jakarta"]{--display:"Plus Jakarta Sans",system-ui,sans-serif;--body:"Plus Jakarta Sans",system-ui,sans-serif}
+body[data-font="fraunces"]{--display:"Fraunces",Georgia,serif;--body:"Inter",system-ui,sans-serif}
+body[data-font="poppins"]{--display:"Poppins",system-ui,sans-serif;--body:"Nunito Sans",system-ui,sans-serif}
+.fontpick{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.fontpick button{padding:4px 11px}
+.center-head{text-align:center;display:flex;flex-direction:column;align-items:center}
+.center-head .lead{margin-left:auto;margin-right:auto}
+.pagehead .wrap{text-align:center;display:flex;flex-direction:column;align-items:center}
+.pagehead .lead{margin-left:auto;margin-right:auto}
+@media (max-width:900px){
+ .kpis{grid-template-columns:1fr 1fr}.charts{grid-template-columns:1fr}
+ .funnel div{grid-template-columns:110px 1fr 36px;font-size:13px}
+ .givebar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:39;gap:12px;align-items:center;justify-content:space-between;background:#fffaf2d9;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1px solid #ffffffcc;padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));font-size:14px}
+ .givebar .btn{padding:11px 30px}
+ .input-btn{bottom:calc(78px + env(safe-area-inset-bottom,0px));padding:12px}
+ .input-btn span{display:none}
+ body{padding-bottom:70px}
+ .wfbar .fontpick{font-size:12px}
+ .orb{filter:blur(40px)}
+}
 </style>
 </head>
-<body>
+<body data-font="jakarta">
+<div class="bg" aria-hidden="true"><span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span></div>
 <div class="scrollbar" id="sbar"></div>
 
-<div class="wfbar"><div class="wrap"><span>Website wireframe · draft for the team · sample text and numbers, photos are placeholders</span><button id="notesbtn" aria-pressed="false">Show design notes</button></div></div>
+<div class="wfbar"><div class="wrap"><span>Website wireframe · draft · sample numbers, placeholder photos</span><span class="fontpick" role="group" aria-label="Font options">Fonts: <button data-f="jakarta" aria-pressed="true">A · Jakarta ★</button><button data-f="saira" aria-pressed="false">B · Saira + Inter</button><button data-f="fraunces" aria-pressed="false">C · Fraunces + Inter</button><button data-f="poppins" aria-pressed="false">D · Poppins + Nunito</button><button id="notesbtn" aria-pressed="false">Design notes</button></span></div></div>
 
 <header>
   <div class="wrap">
@@ -228,7 +324,7 @@ header.scrolled .wrap{padding-block:9px}
         <li><a href="#programmes" data-p="programmes">Our work</a></li>
         <li><a href="#impact" data-p="impact">Impact</a></li>
         <li><a href="#involved" data-p="involved">Get involved</a></li>
-        <li><a href="#sponsor" data-p="sponsor" class="btn btn-sun" style="padding:8px 16px;color:#fff">Sponsor a child</a></li>
+        <li><a href="#sponsor" data-p="sponsor" class="btn btn-sun magnet" style="padding:8px 18px;color:#fff">Give</a></li>
       </ul>
     </nav>
   </div>
@@ -243,22 +339,22 @@ header.scrolled .wrap{padding-block:9px}
       <p class="eyebrow">Educate · Protect · Empower</p>
       <h1>Every child deserves<br>a future.</h1>
       <p class="lead">We help vulnerable children across Isiolo County get to school, stay safe and grow into confident, independent young people.</p>
-      <div class="ctas"><a class="btn btn-sun" href="#sponsor">Sponsor a child</a><a class="btn btn-line" href="#programmes">See our work</a></div>
+      <div class="ctas"><a class="btn btn-sun magnet" href="#sponsor">Sponsor a child</a><a class="btn btn-glass" href="#impact">See our work</a></div>
       <p class="note"><b>Colours and logo:</b> a proposal inspired by northern Kenya (red earth, acacia, savanna gold, dusk), with a thin bead-colour band as a quiet nod to the region's beadwork. The sun-over-acacia logo is a placeholder: Cliffe is designing the real one.</p><p class="note"><b>Why this hero:</b> Cliffe's own lines lead ("Every child deserves… a future", "Educate. Protect. Empower."). A rainbow over acacia land says "hope" without showing any child, so no consent is needed. One action only: Sponsor a child.</p>
     </div>
     <span class="credit">Photo: Daniel Case, CC BY-SA 4.0 (placeholder)</span>
   </section>
-  <div class="hero-card"><div class="wrap"><div class="glass"><div><b data-count="38" data-suffix="%">0%</b></div><div style="flex:1"><div style="font-weight:600;font-size:14.5px">raised for the January term <span style="color:var(--muted);font-weight:400">· sample</span></div><div class="bar"><i id="herobar"></i></div></div><a class="btn btn-sun" href="#sponsor" style="padding:9px 16px">Give</a></div></div></div>
+  <div class="hero-card"><div class="wrap"><div class="glass"><div><b data-count="38" data-suffix="%">0%</b></div><div style="flex:1"><div style="font-weight:600;font-size:14.5px">raised for the January term <span style="color:var(--muted);font-weight:400">· sample</span></div><div class="bar"><i id="herobar"></i></div></div><a class="btn btn-sun magnet" href="#sponsor" style="padding:11px 24px">Give</a></div></div></div>
 
   <section>
     <div class="wrap">
-      <p class="eyebrow">Who we are</p>
-      <h2 style="margin-top:8px;max-width:22ch">A community organisation in Isiolo, working for children's education and safety.</h2>
-      <p class="lead" style="margin-top:16px">Working across Isiolo County's diverse communities, we remove the barriers that keep children out of school: fees, poverty, distance, and risks to their safety.</p>
+      <div class="center-head"><p class="eyebrow">Who we are</p>
+      <h2 style="margin-top:8px;max-width:24ch">A community organisation in Isiolo, working for children's education and safety.</h2>
+      <p class="lead" style="margin-top:16px">Working across Isiolo County's diverse communities, we remove the barriers that keep children out of school: fees, poverty, distance, and risks to their safety.</p></div>
       <div class="pillars">
-        <div class="pillar"><h3>Educate</h3><p>School fees, uniforms, books and learning materials, paid straight to schools.</p></div>
-        <div class="pillar"><h3>Protect</h3><p>With child protection authorities and approved care providers, we help children at risk stay safe and in school.</p></div>
-        <div class="pillar"><h3>Empower</h3><p>Mentors, career guidance, digital literacy and life skills, with graduates coming back to guide the next group.</p></div>
+        <div class="pillar glass-card"><h3>Educate</h3><p>School fees, uniforms, books and learning materials, paid straight to schools.</p></div>
+        <div class="pillar glass-card"><h3>Protect</h3><p>With child protection authorities and approved care providers, we help children at risk stay safe and in school.</p></div>
+        <div class="pillar glass-card"><h3>Empower</h3><p>Mentors, career guidance, digital literacy and life skills, with graduates coming back to guide the next group.</p></div>
       </div>
       <p class="note"><b>Source:</b> Cliffe's "Who We Are" and "What We Do". "Graduates coming back to mentor" is from Josephine's 31 Oct call. Three words, three columns: the tagline becomes the page's structure.</p>
     </div>
@@ -280,14 +376,14 @@ header.scrolled .wrap{padding-block:9px}
 
   <section>
     <div class="wrap">
-      <p class="eyebrow">Our work</p>
-      <h2 style="margin-top:8px">Five programmes, one promise: education and protection go hand in hand.</h2>
+      <div class="center-head"><p class="eyebrow">Our work</p>
+      <h2 style="margin-top:8px">Five programmes, one promise: education and protection go hand in hand.</h2></div>
       <div class="cards">
-        <div class="card"><span class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M7 9v5c0 1.5 2.2 3 5 3s5-1.5 5-3V9"/></svg></span><span class="n">01</span><h3>Education sponsorship</h3><p>Fees, uniforms, books and essentials for vulnerable and promising students.</p></div>
-        <div class="card"><span class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3.5"/><path d="M5 21c1-4 3.5-6 7-6s6 2 7 6"/></svg></span><span class="n">02</span><h3>Girls' education</h3><p>Keeping girls in school, preventing early marriage and FGM, building leaders.</p></div>
-        <div class="card"><span class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></svg></span><span class="n">03</span><h3>Child protection and safe care</h3><p>With authorities and approved care providers, for children facing abuse or unsafe homes.</p></div>
-        <div class="card"><span class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></span><span class="n">04</span><h3>Family and community</h3><p>Parents, elders, women and faith leaders creating safer homes for children.</p></div>
-        <div class="card"><span class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.8z"/></svg></span><span class="n">05</span><h3>Mentorship and talent</h3><p>Career guidance, leadership, digital literacy and life skills.</p></div>
+        <div class="card glass-card"><span class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M7 9v5c0 1.5 2.2 3 5 3s5-1.5 5-3V9"/></svg></span><span class="n">01</span><h3>Education sponsorship</h3><p>Fees, uniforms, books and essentials for vulnerable and promising students.</p></div>
+        <div class="card glass-card"><span class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3.5"/><path d="M5 21c1-4 3.5-6 7-6s6 2 7 6"/></svg></span><span class="n">02</span><h3>Girls' education</h3><p>Keeping girls in school, preventing early marriage and FGM, building leaders.</p></div>
+        <div class="card glass-card"><span class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></svg></span><span class="n">03</span><h3>Child protection and safe care</h3><p>With authorities and approved care providers, for children facing abuse or unsafe homes.</p></div>
+        <div class="card glass-card"><span class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></span><span class="n">04</span><h3>Family and community</h3><p>Parents, elders, women and faith leaders creating safer homes for children.</p></div>
+        <div class="card glass-card"><span class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.8z"/></svg></span><span class="n">05</span><h3>Mentorship and talent</h3><p>Career guidance, leadership, digital literacy and life skills.</p></div>
       </div>
       <p class="note"><b>Source:</b> Cliffe's five programmes. "Safe Homes" is renamed "safe care" so it never reads as the Foundation running a children's home, which Kenyan law restricts (Children Act 2022); his own text already says "approved care providers".</p>
     </div>
@@ -295,9 +391,9 @@ header.scrolled .wrap{padding-block:9px}
 
   <section class="impact">
     <div class="wrap">
-      <p class="eyebrow" style="color:#ffd2b0">Our impact <span class="sample">sample numbers</span></p>
+      <div class="center-head"><p class="eyebrow" style="color:var(--gold)">Our impact <span class="sample">sample numbers</span></p>
       <h2 style="margin-top:8px">Every shilling, traced from donor to classroom.</h2>
-      <p class="lead" style="margin-top:14px">Updated every week from our records. We publish totals, never children's names.</p>
+      <p class="lead" style="margin-top:14px">Updated every week from our records. We publish totals, never children's names.</p></div>
       <div class="stats">
         <div class="stat"><b data-count="5">0</b><span>students supported this year</span></div>
         <div class="stat"><b data-count="1.22" data-prefix="KES " data-suffix="M" data-dec="2">KES 0M</b><span>needed for the 2027 school year</span></div>
@@ -311,14 +407,14 @@ header.scrolled .wrap{padding-block:9px}
 
   <section class="sand">
     <div class="wrap">
-      <p class="eyebrow">How your gift works</p>
-      <h2 style="margin-top:8px">Simple, and fully accounted for.</h2>
+      <div class="center-head"><p class="eyebrow">How your gift works</p>
+      <h2 style="margin-top:8px">Simple, and fully accounted for.</h2></div>
       <div class="trail">
-        <div class="step"><h3>You give</h3><p>M-Pesa, PayPal or bank transfer.</p></div>
-        <div class="step"><h3>Foundation account</h3><p>Every gift goes to the Foundation's own account.</p></div>
-        <div class="step"><h3>School paid</h3><p>Fees go directly to the school, receipt kept.</p></div>
-        <div class="step"><h3>Student recorded</h3><p>Attendance and progress tracked each term.</p></div>
-        <div class="step"><h3>You hear back</h3><p>A thank-you, then a short update every month.</p></div>
+        <div class="step glass-card"><h3>You give</h3><p>M-Pesa, PayPal or bank transfer.</p></div>
+        <div class="step glass-card"><h3>Foundation account</h3><p>Every gift goes to the Foundation's own account.</p></div>
+        <div class="step glass-card"><h3>School paid</h3><p>Fees go directly to the school, receipt kept.</p></div>
+        <div class="step glass-card"><h3>Student recorded</h3><p>Attendance and progress tracked each term.</p></div>
+        <div class="step glass-card"><h3>You hear back</h3><p>A thank-you, then a short update every month.</p></div>
       </div>
       <p class="note"><b>Why:</b> answers a sponsor's real question, "where does my money go?", in five steps. It's the donor-facing side of the tracker, donation log and monthly update we planned.</p>
     </div>
@@ -341,9 +437,9 @@ header.scrolled .wrap{padding-block:9px}
     <div class="wrap">
       <div style="display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap"><div><p class="eyebrow">Latest news</p><h2 style="margin-top:8px">What we've been doing.</h2></div><a class="btn btn-line" href="#impact">All updates</a></div>
       <div class="updates">
-        <article class="post"><div class="ph"><img src="img/landscape-of-ewaso-ngiro-basin-in-kenya.jpg" alt="Open landscape of the Ewaso Ng'iro basin under cloud" loading="lazy"></div><div class="t"><time>November 2026 · sample</time><h3>The Foundation is registered</h3><p style="color:var(--muted);margin-top:6px">Queen of Peace Hope Foundation can now work across Isiolo County and beyond.</p></div></article>
-        <article class="post"><div class="ph"><img src="img/yaaq-barsadi-isiolo-south-isiolo-kenya.jpg" alt="Green hills and acacia after rain in Isiolo South" loading="lazy"></div><div class="t"><time>January 2027 · sample</time><h3>Back to school</h3><p style="color:var(--muted);margin-top:6px">Our students start the new term with fees paid and books in hand.</p></div></article>
-        <article class="post"><div class="ph"><img src="img/samburu-landscape-with-trees.jpg" alt="Green acacia trees in golden grassland under a blue sky" loading="lazy"></div><div class="t"><time>December 2026 · sample</time><h3>Talking with families</h3><p style="color:var(--muted);margin-top:6px">Meetings with parents and elders on keeping girls in school.</p></div></article>
+        <article class="post glass-card"><div class="ph"><img src="img/landscape-of-ewaso-ngiro-basin-in-kenya.jpg" alt="Open landscape of the Ewaso Ng'iro basin under cloud" loading="lazy"></div><div class="t"><time>November 2026 · sample</time><h3>The Foundation is registered</h3><p style="color:var(--muted);margin-top:6px">Queen of Peace Hope Foundation can now work across Isiolo County and beyond.</p></div></article>
+        <article class="post glass-card"><div class="ph"><img src="img/yaaq-barsadi-isiolo-south-isiolo-kenya.jpg" alt="Green hills and acacia after rain in Isiolo South" loading="lazy"></div><div class="t"><time>January 2027 · sample</time><h3>Back to school</h3><p style="color:var(--muted);margin-top:6px">Our students start the new term with fees paid and books in hand.</p></div></article>
+        <article class="post glass-card"><div class="ph"><img src="img/samburu-landscape-with-trees.jpg" alt="Green acacia trees in golden grassland under a blue sky" loading="lazy"></div><div class="t"><time>December 2026 · sample</time><h3>Talking with families</h3><p style="color:var(--muted);margin-top:6px">Meetings with parents and elders on keeping girls in school.</p></div></article>
       </div>
       <p class="note"><b>Why:</b> a live "what we're doing" feed was Joseph's idea; Cliffe writes an update in a simple form and it appears here only after Josephine approves it. Keeps the site alive without a developer.</p>
     </div>
@@ -384,31 +480,80 @@ header.scrolled .wrap{padding-block:9px}
 <div class="page" id="p-programmes">
   <div class="pagehead"><div class="wrap"><p class="eyebrow">Our work</p><h1 style="margin-top:8px;font-size:clamp(32px,5vw,48px)">Education first, with safety and family at its side.</h1><p class="lead">Five programmes that work together, starting with education sponsorship.</p></div></div>
   <section><div class="wrap" style="display:grid;gap:22px">
-    <div class="box two"><div><span class="eyebrow">01 · Starting now</span><h2 style="margin-top:6px">Education sponsorship</h2><p style="color:var(--muted);margin-top:10px">We find students who are out of school or about to drop out, link them to a place in a local school, and pay what stands in the way: fees, uniforms, books and essentials. Boarding school where a child needs to be safe.</p></div><div><h3>What we track</h3><ul class="list"><li>Fees due and paid, with school receipts</li><li>Attendance each term</li><li>Progress to the next class</li></ul></div></div>
-    <div class="box two"><div><span class="eyebrow">02</span><h2 style="margin-top:6px">Girls' education and empowerment</h2><p style="color:var(--muted);margin-top:10px">Keeping girls in class through the long December holiday and beyond, preventing early marriage and FGM, and building leaders through mentorship.</p></div><div><h3>Includes</h3><ul class="list"><li>Mentors and role models</li><li>Support for teenage mothers to return</li><li>Alternative rites of passage, with communities</li></ul></div></div>
-    <div class="box two"><div><span class="eyebrow">03</span><h2 style="margin-top:6px">Child protection and safe care</h2><p style="color:var(--muted);margin-top:10px">With child protection authorities and approved care providers, we support children facing abuse, neglect or unsafe homes, through family-based and community care first.</p></div><div><h3>Partners</h3><ul class="list"><li>County Children's Services</li><li>Schools with boarding</li><li>Approved care providers</li></ul></div></div>
-    <div class="box two"><div><span class="eyebrow">04 · 05</span><h2 style="margin-top:6px">Family, community and mentorship</h2><p style="color:var(--muted);margin-top:10px">Parents, elders, women and faith leaders creating safer homes; career guidance, digital literacy and life skills for students.</p></div><div><h3>Coming later</h3><ul class="list"><li>Livelihoods for families</li><li>Recovery after drought and floods</li></ul></div></div>
+    <div class="box two glass-card"><div><span class="eyebrow">01 · Starting now</span><h2 style="margin-top:6px">Education sponsorship</h2><p style="color:var(--muted);margin-top:10px">We find students who are out of school or about to drop out, link them to a place in a local school, and pay what stands in the way: fees, uniforms, books and essentials. Boarding school where a child needs to be safe.</p></div><div><h3>What we track</h3><ul class="list"><li>Fees due and paid, with school receipts</li><li>Attendance each term</li><li>Progress to the next class</li></ul></div></div>
+    <div class="box two glass-card"><div><span class="eyebrow">02</span><h2 style="margin-top:6px">Girls' education and empowerment</h2><p style="color:var(--muted);margin-top:10px">Keeping girls in class through the long December holiday and beyond, preventing early marriage and FGM, and building leaders through mentorship.</p></div><div><h3>Includes</h3><ul class="list"><li>Mentors and role models</li><li>Support for teenage mothers to return</li><li>Alternative rites of passage, with communities</li></ul></div></div>
+    <div class="box two glass-card"><div><span class="eyebrow">03</span><h2 style="margin-top:6px">Child protection and safe care</h2><p style="color:var(--muted);margin-top:10px">With child protection authorities and approved care providers, we support children facing abuse, neglect or unsafe homes, through family-based and community care first.</p></div><div><h3>Partners</h3><ul class="list"><li>County Children's Services</li><li>Schools with boarding</li><li>Approved care providers</li></ul></div></div>
+    <div class="box two glass-card"><div><span class="eyebrow">04 · 05</span><h2 style="margin-top:6px">Family, community and mentorship</h2><p style="color:var(--muted);margin-top:10px">Parents, elders, women and faith leaders creating safer homes; career guidance, digital literacy and life skills for students.</p></div><div><h3>Coming later</h3><ul class="list"><li>Livelihoods for families</li><li>Recovery after drought and floods</li></ul></div></div>
   </div><div class="wrap"><p class="note"><b>Source:</b> the order follows Cliffe on the 13 Nov call: education first, then livelihoods, then climate. "Long December holiday" and "boarding for safety" are his words from the call. "What we track" is Joseph's tracking plan, shown publicly so funders see the rigour.</p></div></section>
 </div>
 
 <!-- ================= IMPACT ================= -->
 <div class="page" id="p-impact">
-  <div class="pagehead"><div class="wrap"><p class="eyebrow">Impact and transparency</p><h1 style="margin-top:8px;font-size:clamp(32px,5vw,48px)">Our numbers, updated every week.</h1><p class="lead">Totals from our records. Children's details stay private.</p></div></div>
+  <div class="pagehead"><div class="wrap"><p class="eyebrow">Open by default</p><h1 style="margin-top:8px;font-size:clamp(32px,5vw,50px)">Everything we do is tracked.<br>Everything we track is shared.</h1><p class="lead">Every shilling, every student, every term. Totals from our records, updated weekly. Children's details stay private. <span class="pill-s">sample data</span></p></div></div>
   <section><div class="wrap">
-    <div class="stats" style="color:var(--ink)">
-      <div class="stat"><b style="color:var(--sun-ink)">5</b><span style="color:var(--muted)">students supported</span></div>
-      <div class="stat"><b style="color:var(--sun-ink)">KES 465,000</b><span style="color:var(--muted)">raised so far (sample)</span></div>
-      <div class="stat"><b style="color:var(--sun-ink)">3</b><span style="color:var(--muted)">partner schools (sample)</span></div>
-      <div class="stat"><b style="color:var(--sun-ink)">94%</b><span style="color:var(--muted)">attendance last term (sample)</span></div>
+    <div class="kpis">
+      <div class="kpi glass-card"><span>Students supported</span><b data-count="5">0</b><em>2027 school year</em></div>
+      <div class="kpi glass-card"><span>Fees paid with a school receipt</span><b data-count="100" data-suffix="%">0%</b><em>every payment matched</em></div>
+      <div class="kpi glass-card"><span>Attendance, last term</span><b data-count="94" data-suffix="%">0%</b><em>from school registers</em></div>
+      <div class="kpi glass-card"><span>Cost per student, per year</span><b data-count="244" data-prefix="KES " data-suffix="k">KES 0k</b><em>fees, books, mentoring</em></div>
     </div>
-    <h3 style="margin-top:48px">January term, by level</h3>
-    <div style="overflow-x:auto"><table class="table" style="margin-top:12px"><thead><tr><th>Level</th><th>Students</th><th>Fees needed</th><th>Paid</th><th>Status</th></tr></thead><tbody>
-      <tr><td>College / diploma</td><td>2</td><td>KES 230,000</td><td>KES 40,000</td><td>Raising</td></tr>
-      <tr><td>Secondary</td><td>1</td><td>KES 50,000</td><td>KES 50,000</td><td>Paid ✓</td></tr>
-      <tr><td>Primary and early years</td><td>2</td><td>KES 45,000</td><td>KES 10,000</td><td>Raising</td></tr>
-    </tbody></table></div>
-    <div class="two" style="margin-top:48px"><div class="box"><h3>Reports</h3><div class="ph-box" style="margin-top:12px">Term report · Annual report · Audited accounts (when available)</div></div><div class="box"><h3>For partners and funders</h3><p style="color:var(--muted);margin-top:8px">Our records follow the fields funders recognise, so reports are ready when you need them.</p><p style="margin-top:14px"><a class="btn btn-line" href="#involved">Partner with us</a></p></div></div>
-  </div><div class="wrap"><p class="note"><b>Why:</b> the public face of the private tracker ("CRM view" for the team, "website view" for everyone). Grouped by level, never by child. Numbers here are illustrations; the real ones update automatically from the Foundation's sheet.</p></div></section>
+
+    <div class="charts">
+      <figure class="chart glass-card wide">
+        <figcaption><h3>Raised vs needed for the January term</h3><p>Cumulative gifts by week, against the KES 325,000 target</p></figcaption>
+        <svg viewBox="0 0 640 230" class="line" role="img" aria-label="Cumulative funds raised rising from 0 to 248,000 against a 325,000 target over eight weeks">
+          <g class="grid"><line x1="40" y1="20" x2="630" y2="20"/><line x1="40" y1="80" x2="630" y2="80"/><line x1="40" y1="140" x2="630" y2="140"/><line x1="40" y1="200" x2="630" y2="200"/></g>
+          <g class="ax"><text x="34" y="24">325k</text><text x="34" y="84">220k</text><text x="34" y="144">110k</text><text x="34" y="204">0</text></g>
+          <line class="target" x1="40" y1="20" x2="630" y2="20"/><text class="tlabel" x="630" y="14" text-anchor="end">target</text>
+          <path class="area draw-area" d="M40 200 L115 192 L190 176 L265 150 L340 128 L415 102 L490 86 L565 64 L565 200 Z"/>
+          <path class="stroke draw" d="M40 200 L115 192 L190 176 L265 150 L340 128 L415 102 L490 86 L565 64"/>
+          <g class="pts"><circle cx="565" cy="64" r="5"><title>Week 8: KES 248,000 (76%)</title></circle><circle cx="415" cy="102" r="4"><title>Week 6: KES 165,000</title></circle><circle cx="265" cy="150" r="4"><title>Week 4: KES 92,000</title></circle></g>
+          <text class="end" x="560" y="52" text-anchor="end">KES 248k · 76%</text>
+          <g class="ax"><text x="40" y="222" text-anchor="start">16 Nov</text><text x="340" y="222" text-anchor="middle">14 Dec</text><text x="565" y="222" text-anchor="middle">5 Jan</text></g>
+        </svg>
+      </figure>
+
+      <figure class="chart glass-card">
+        <figcaption><h3>From identified to in class</h3><p>Every child we meet, followed through</p></figcaption>
+        <div class="funnel">
+          <div><span>Identified</span><i style="--w:100%"></i><b>12</b></div>
+          <div><span>Assessed with family</span><i style="--w:75%"></i><b>9</b></div>
+          <div><span>Enrolled, fees paid</span><i style="--w:42%"></i><b>5</b></div>
+          <div><span>Attending this term</span><i style="--w:42%"></i><b>5</b></div>
+          <div><span>Moved up a level</span><i style="--w:0%" class="later"></i><b>Dec</b></div>
+        </div>
+      </figure>
+
+      <figure class="chart glass-card">
+        <figcaption><h3>Attendance by term</h3><p>Share of school days attended</p></figcaption>
+        <div class="cols3">
+          <div><i style="--h:92%"><b>92%</b></i><span>Term 1</span></div>
+          <div><i style="--h:94%"><b>94%</b></i><span>Term 2</span></div>
+          <div><i style="--h:95%"><b>95%</b></i><span>Term 3</span></div>
+          <div class="goal"><i style="--h:95%"><b>95%</b></i><span>Our goal</span></div>
+        </div>
+      </figure>
+
+      <figure class="chart glass-card wide">
+        <figcaption><h3>Where every shilling goes</h3><p>Spending so far this year</p></figcaption>
+        <div class="stack"><i style="--w:86%;--c:var(--sun)" title="School fees 86%"></i><i style="--w:9%;--c:var(--gold)" title="Uniforms and books 9%"></i><i style="--w:3%;--c:var(--acacia)" title="Mentoring 3%"></i><i style="--w:2%;--c:var(--sky)" title="Tracking and reporting 2%"></i></div>
+        <div class="legend"><span><em style="background:var(--sun)"></em>School fees · 86%</span><span><em style="background:var(--gold)"></em>Uniforms and books · 9%</span><span><em style="background:var(--acacia)"></em>Mentoring · 3%</span><span><em style="background:var(--sky)"></em>Tracking and reporting · 2%</span></div>
+      </figure>
+    </div>
+
+    <div class="glass-card" style="margin-top:28px;padding:26px">
+      <h3>What we track, and how</h3>
+      <div style="overflow-x:auto"><table class="table" style="margin-top:12px"><thead><tr><th>Measure</th><th>How we check it</th><th>How often</th><th>Shared as</th></tr></thead><tbody>
+        <tr><td>Fees paid</td><td>School receipt matched to each payment</td><td>Every payment</td><td>Totals by level</td></tr>
+        <tr><td>Attendance</td><td>School register, signed by the head teacher</td><td>Each term</td><td>Percentage</td></tr>
+        <tr><td>Progress</td><td>Report card: moved up a level</td><td>Each year</td><td>Count</td></tr>
+        <tr><td>Every gift</td><td>Logged the day it arrives, thanked within a day</td><td>Daily</td><td>Monthly update</td></tr>
+        <tr><td>Wellbeing and safety</td><td>Mentor check-ins; concerns go to the authorities</td><td>Monthly</td><td>Never public</td></tr>
+      </tbody></table></div>
+      <p style="color:var(--muted);margin-top:14px;font-size:14.5px">Our records use the field names of the International Aid Transparency Initiative (IATI), so funders can read our reports easily.</p>
+    </div>
+    <div class="two" style="margin-top:28px"><div class="glass-card" style="padding:24px"><h3>Reports</h3><div class="ph-box" style="margin-top:12px">Term report · Annual report · Audited accounts (when available)</div></div><div class="glass-card" style="padding:24px"><h3>For partners and funders</h3><p style="color:var(--muted);margin-top:8px">Ask for our full data on any programme. We answer within a week.</p><p style="margin-top:14px"><a class="btn btn-line" href="#involved">Partner with us</a></p></div></div>
+  </div><div class="wrap"><p class="note"><b>Why:</b> Joseph's lane, made visible: a data-led results page that shows the whole chain (money in → school paid → child attending → moving up). All figures are illustrations; the real ones update from the Foundation's private records, totals only. Safety measures are tracked but never published.</p></div></section>
 </div>
 
 <!-- ================= SPONSOR ================= -->
@@ -416,15 +561,15 @@ header.scrolled .wrap{padding-block:9px}
   <div class="pagehead"><div class="wrap"><p class="eyebrow">Sponsor a child</p><h1 style="margin-top:8px;font-size:clamp(32px,5vw,48px)">Help a child reach school, and stay there.</h1><p class="lead">Your gift joins our Education Fund, which pays fees straight to schools. We share how every shilling is used.</p></div></div>
   <section><div class="wrap">
     <div class="give">
-      <div class="tier"><span class="eyebrow">Once</span><b>KES 5,000</b><p style="color:var(--muted);margin-top:8px">Books and supplies for a student for a term.</p></div>
-      <div class="tier featured"><span class="eyebrow">Monthly · most helpful</span><b>KES 2,500 / month</b><p style="color:var(--muted);margin-top:8px">A steady share of a secondary student's fees all year.</p></div>
-      <div class="tier"><span class="eyebrow">Once</span><b>KES 20,000</b><p style="color:var(--muted);margin-top:8px">A full term of secondary school fees.</p></div>
+      <div class="tier glass-card"><span class="eyebrow">Once</span><b>KES 5,000</b><p style="color:var(--muted);margin-top:8px">Books and supplies for a student for a term.</p></div>
+      <div class="tier featured glass-card"><span class="eyebrow">Monthly · most helpful</span><b>KES 2,500 / month</b><p style="color:var(--muted);margin-top:8px">A steady share of a secondary student's fees all year.</p></div>
+      <div class="tier glass-card"><span class="eyebrow">Once</span><b>KES 20,000</b><p style="color:var(--muted);margin-top:8px">A full term of secondary school fees.</p></div>
     </div>
     <h3 style="margin-top:40px">Ways to give</h3>
     <div class="ways"><span>M-Pesa Paybill: to confirm</span><span>PayPal</span><span>Bank transfer: details to confirm</span></div>
     <div class="two" style="margin-top:40px">
-      <div class="box"><h3>What happens next</h3><ul class="list"><li>A thank-you within a day</li><li>A short update every month</li><li>A term report showing where the money went</li></ul></div>
-      <div class="box"><h3>Why we pool gifts</h3><p style="color:var(--muted);margin-top:8px">To keep children safe, we don't publish individual profiles. Your gift supports students through our Education Fund, and you'll see the results in our reports.</p></div>
+      <div class="box glass-card"><h3>What happens next</h3><ul class="list"><li>A thank-you within a day</li><li>A short update every month</li><li>A term report showing where the money went</li></ul></div>
+      <div class="box glass-card"><h3>Why we pool gifts</h3><p style="color:var(--muted);margin-top:8px">To keep children safe, we don't publish individual profiles. Your gift supports students through our Education Fund, and you'll see the results in our reports.</p></div>
     </div>
   </div><div class="wrap"><p class="note"><b>Why:</b> monthly giving is the steadiest money a small charity can have, so it's featured. Gift amounts are examples to confirm with the team. "Why we pool gifts" protects children at risk while keeping Cliffe's "Sponsor a Child" idea. Donate buttons connect to the Foundation's PayPal and M-Pesa once open; money never touches the website.</p></div></section>
 </div>
@@ -434,11 +579,11 @@ header.scrolled .wrap{padding-block:9px}
   <div class="pagehead"><div class="wrap"><p class="eyebrow">Get involved</p><h1 style="margin-top:8px;font-size:clamp(32px,5vw,48px)">Partners, donors, volunteers and well-wishers: join us.</h1></div></div>
   <section><div class="wrap two">
     <div style="display:grid;gap:16px">
-      <div class="box"><h3>Schools</h3><p style="color:var(--muted);margin-top:6px">Partner with us to re-admit and support students.</p></div>
-      <div class="box"><h3>Partners and funders</h3><p style="color:var(--muted);margin-top:6px">Programme concept notes and reports on request.</p></div>
-      <div class="box"><h3>Volunteers</h3><p style="color:var(--muted);margin-top:6px">Mentoring, skills and time.</p></div>
+      <div class="box glass-card"><h3>Schools</h3><p style="color:var(--muted);margin-top:6px">Partner with us to re-admit and support students.</p></div>
+      <div class="box glass-card"><h3>Partners and funders</h3><p style="color:var(--muted);margin-top:6px">Programme concept notes and reports on request.</p></div>
+      <div class="box glass-card"><h3>Volunteers</h3><p style="color:var(--muted);margin-top:6px">Mentoring, skills and time.</p></div>
     </div>
-    <form class="box form" onsubmit="event.preventDefault();this.querySelector('.ok').hidden=false">
+    <form class="box form glass-card" onsubmit="event.preventDefault();this.querySelector('.ok').hidden=false">
       <h3>Contact us</h3>
       <label for="n">Name</label><input id="n" autocomplete="name">
       <label for="e">Email</label><input id="e" type="email" autocomplete="email">
@@ -450,6 +595,8 @@ header.scrolled .wrap{padding-block:9px}
   </div><div class="wrap"><p class="note"><b>Source:</b> "We invite partners, donors, volunteers and well-wishers" (Cliffe). Messages would go to the Foundation's official email, which is being set up.</p></div></section>
 </div>
 </main>
+<div class="givebar"><span><b>38%</b> raised for January</span><a class="btn btn-sun" href="#sponsor">Give</a></div>
+<a class="input-btn" href="https://wa.me/13853068780?text=Hi%20Joseph%2C%20input%20on%20the%20Foundation%20website%3A%20" target="_blank" rel="noopener" aria-label="Give input on the website by WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2.1.7 2.8.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg><span>Give input</span></a>
 
 <footer>
   <div class="wrap">
@@ -497,6 +644,16 @@ addEventListener('scroll',()=>{const y=scrollY,h=document.documentElement.scroll
 if(!reduce&&matchMedia('(hover:hover)').matches)document.querySelectorAll('.card').forEach(c=>{
   c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`perspective(700px) rotateY(${x*6}deg) rotateX(${-y*6}deg) translateY(-3px)`;});
   c.addEventListener('mouseleave',()=>{c.style.transform=''});});
+</script>
+
+<script>
+document.querySelectorAll('.fontpick [data-f]').forEach(b=>b.onclick=()=>{document.body.dataset.font=b.dataset.f;document.querySelectorAll('.fontpick [data-f]').forEach(x=>x.setAttribute('aria-pressed',x===b));});
+if(matchMedia('(hover:hover)').matches&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  document.querySelectorAll('.magnet').forEach(m=>{const pull=.35,range=90;
+    addEventListener('mousemove',e=>{const r=m.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2,dx=e.clientX-cx,dy=e.clientY-cy,d=Math.hypot(dx,dy);
+      if(d<range+r.width/2){m.style.transform=`translate(${dx*pull}px,${dy*pull}px) scale(1.04)`;m.style.boxShadow='0 14px 28px #b5452b55'}else{m.style.transform='';m.style.boxShadow=''}},{passive:true});});}
+document.querySelectorAll('.chart, .kpi').forEach(el=>el.classList.add('reveal'));
+setTimeout(()=>{if(typeof observe==='function')observe()},60);
 </script>
 </body>
 </html>
