@@ -719,7 +719,7 @@ body.notes .notes-banner{display:flex;position:fixed;left:50%;transform:translat
   </div><div class="wrap"><p class="note"><b>Source:</b> "We invite partners, donors, volunteers and well-wishers" (Cliffe). Messages would go to the Foundation's official email, which is being set up.</p></div></section>
 </div>
 </main>
-<div class="notes-banner" id="notesbanner">Yellow boxes are <b>design notes</b> explaining each section. <button id="nbhide">Hide notes</button></div>
+<div class="notes-banner" id="notesbanner"><span>Yellow boxes are <b>design notes</b> explaining each section.</span><button id="nbhide">Hide notes</button><button id="nbx" aria-label="Close this message" style="background:transparent;color:#4a3f10;padding:5px 8px">✕</button></div>
 <div class="givebar"><span><b>38%</b> raised for January</span><a class="btn btn-sun" href="#sponsor">Give</a></div>
 <a class="input-btn" href="https://wa.me/13853068780?text=Hi%20Joseph%2C%20input%20on%20the%20Foundation%20website%3A%20" target="_blank" rel="noopener" aria-label="Give input on this draft website: opens a WhatsApp chat with Joseph" title="Ideas or changes for this draft website? Send them to Joseph on WhatsApp."><span class="tip" role="tooltip">Ideas or changes for this draft website? Send them to Joseph on WhatsApp.</span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2.1.7 2.8.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg><span>Give input</span></a>
 
@@ -795,7 +795,7 @@ document.querySelectorAll('[data-b]').forEach(b=>b.onclick=()=>{document.body.da
 })();
 </script>
 <script>
-(function(){const hide=document.getElementById('nbhide'),nb=document.getElementById('notesbtn');if(hide)hide.onclick=()=>nb.click();})();
+(function(){const hide=document.getElementById('nbhide'),nb=document.getElementById('notesbtn'),bn=document.getElementById('notesbanner');if(hide)hide.onclick=()=>nb.click();document.getElementById('nbx').onclick=()=>bn.style.visibility='hidden';setTimeout(()=>{bn.style.transition='opacity .6s';bn.style.opacity='0';setTimeout(()=>bn.style.visibility='hidden',700)},12000);})();
 </script>
 </body>
 </html>
