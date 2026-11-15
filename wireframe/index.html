@@ -165,9 +165,53 @@ body.notes .note{display:block}
   .stat b{font-size:32px}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* ---- depth + motion (v3) ---- */
+.scrollbar{position:fixed;left:0;top:0;height:3px;width:0;background:var(--beads);z-index:50}
+header{transition:box-shadow .25s,background .25s}
+header.scrolled{box-shadow:0 8px 24px #1d25281a}
+header.scrolled .wrap{padding-block:9px}
+.hero img{transform:scale(1.08);transform-origin:center;will-change:transform;animation:drift 22s ease-in-out infinite alternate}
+@keyframes drift{from{transform:scale(1.08) translate3d(0,0,0)}to{transform:scale(1.14) translate3d(-1.5%,-1%,0)}}
+.hero-card{position:relative;z-index:2;margin-top:-56px;margin-bottom:-10px}
+.hero-card .glass{max-width:520px;margin-left:auto;background:#ffffffeb;backdrop-filter:blur(10px);border-radius:20px;padding:18px 22px;box-shadow:0 24px 48px #1d252829,0 2px 6px #1d252814;display:flex;gap:18px;align-items:center}
+.hero-card b{font-family:var(--display);font-size:30px;color:var(--sun);font-variant-numeric:tabular-nums}
+.hero-card .bar{flex:1;height:8px;border-radius:8px;background:var(--sand-2);overflow:hidden;margin-top:6px}
+.hero-card .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--sun),var(--gold));border-radius:8px;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.photo{box-shadow:0 30px 60px -20px #1d252859}
+.photo.framed{overflow:visible;background:none}
+.photo.framed::before{content:"";position:absolute;inset:18px -18px -18px 18px;border-radius:20px;background:var(--beads);opacity:.85;z-index:-1}
+.photo.framed img{border-radius:20px;position:relative}
+.split .photo{isolation:isolate}
+.photo img{transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.photo:hover img{transform:scale(1.04)}
+.post{transition:transform .25s,box-shadow .25s}
+.post:hover{transform:translateY(-4px);box-shadow:0 18px 36px #1d25281f}
+.post .ph img{transition:transform .8s}
+.post:hover .ph img{transform:scale(1.06)}
+.step{transition:transform .25s,box-shadow .25s}
+.step:hover{transform:translateY(-4px);box-shadow:0 14px 28px #1d25281a}
+.tags span{transition:background .2s,border-color .2s,transform .2s}
+.tags span:hover{background:var(--sun-soft);border-color:var(--sun);transform:translateY(-2px)}
+.card{transform-style:preserve-3d;will-change:transform}
+.btn{transition:transform .2s,box-shadow .2s}
+.btn-sun:hover{transform:translateY(-2px);box-shadow:0 10px 20px #b5452b4d}
+.impact{position:relative;overflow:hidden}
+.impact::before{content:"";position:absolute;width:520px;height:520px;right:-160px;top:-180px;border-radius:50%;background:radial-gradient(circle,#d9a44133,transparent 65%)}
+.impact .wrap{position:relative}
+.reveal{opacity:1}
+.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.js .reveal.in{opacity:1;transform:none}
+.js .trail .step.reveal:nth-child(2){transition-delay:.08s}.js .trail .step.reveal:nth-child(3){transition-delay:.16s}.js .trail .step.reveal:nth-child(4){transition-delay:.24s}.js .trail .step.reveal:nth-child(5){transition-delay:.32s}
+.js .cards .card.reveal:nth-child(2){transition-delay:.06s}.js .cards .card.reveal:nth-child(3){transition-delay:.12s}.js .cards .card.reveal:nth-child(4){transition-delay:.18s}.js .cards .card.reveal:nth-child(5){transition-delay:.24s}
+.progress i{width:0;transition:width 1.6s cubic-bezier(.2,.8,.2,1)}
+.progress.in i{width:38%}
+@media (max-width:900px){.hero-card .glass{margin:0 auto}.photo.framed::before{inset:12px -10px -12px 10px}}
+@media (prefers-reduced-motion:reduce){.hero img{animation:none}.js .reveal{opacity:1;transform:none;transition:none}.progress i,.hero-card .bar i{transition:none}}
 </style>
 </head>
 <body>
+<div class="scrollbar" id="sbar"></div>
 
 <div class="wfbar"><div class="wrap"><span>Website wireframe · draft for the team · sample text and numbers, photos are placeholders</span><button id="notesbtn" aria-pressed="false">Show design notes</button></div></div>
 
@@ -201,6 +245,7 @@ body.notes .note{display:block}
     </div>
     <span class="credit">Photo: Daniel Case, CC BY-SA 4.0 (placeholder)</span>
   </section>
+  <div class="hero-card"><div class="wrap"><div class="glass"><div><b data-count="38" data-suffix="%">0%</b></div><div style="flex:1"><div style="font-weight:600;font-size:14.5px">raised for the January term <span style="color:var(--muted);font-weight:400">· sample</span></div><div class="bar"><i id="herobar"></i></div></div><a class="btn btn-sun" href="#sponsor" style="padding:9px 16px">Give</a></div></div></div>
 
   <section>
     <div class="wrap">
@@ -226,7 +271,7 @@ body.notes .note{display:block}
         </div>
         <p class="note"><b>Source:</b> Cliffe's seven priority groups, word for word in meaning. Each child is assessed individually, never by community (his background doc). No community is named next to a harm (our rule).</p>
       </div>
-      <div class="photo"><img src="img/public-classroom.jpg" alt="An empty classroom with wooden desks and blackboards" loading="lazy"><span class="credit">Artelnjeru, CC BY-SA 4.0 (placeholder)</span></div>
+      <div class="photo framed"><img src="img/public-classroom.jpg" alt="An empty classroom with wooden desks and blackboards" loading="lazy"><span class="credit">Artelnjeru, CC BY-SA 4.0 (placeholder)</span></div>
     </div>
   </section>
 
@@ -251,12 +296,12 @@ body.notes .note{display:block}
       <h2 style="margin-top:8px">Every shilling, traced from donor to classroom.</h2>
       <p class="lead" style="margin-top:14px">Updated every week from our records. We publish totals, never children's names.</p>
       <div class="stats">
-        <div class="stat"><b>5</b><span>students supported this year</span></div>
-        <div class="stat"><b>KES 1.22M</b><span>needed for the 2027 school year</span></div>
-        <div class="stat"><b>38%</b><span>raised for the January term</span></div>
-        <div class="stat"><b>100%</b><span>of fees paid straight to schools, with receipts</span></div>
+        <div class="stat"><b data-count="5">0</b><span>students supported this year</span></div>
+        <div class="stat"><b data-count="1.22" data-prefix="KES " data-suffix="M" data-dec="2">KES 0M</b><span>needed for the 2027 school year</span></div>
+        <div class="stat"><b data-count="38" data-suffix="%">0%</b><span>raised for the January term</span></div>
+        <div class="stat"><b data-count="100" data-suffix="%">0%</b><span>of fees paid straight to schools, with receipts</span></div>
       </div>
-      <div class="progress" aria-label="38% raised"><i></i></div>
+      <div class="progress" id="hprog" aria-label="38% raised"><i></i></div>
       <p class="note"><b>Why:</b> transparency is what funders check first, and it's the core of Joseph's tracking system. These numbers come live from the Foundation's own tracker (totals only). 5 students and KES 1.22M are from the sponsorship profiles; 38% is a placeholder.</p>
     </div>
   </section>
@@ -319,7 +364,7 @@ body.notes .note{display:block}
     <div><h3>Our mission</h3><p style="color:var(--muted);margin-top:8px">To provide vulnerable children with access to quality education, protection, mentorship and opportunities that enable them to become confident, independent and responsible members of society.</p>
     <h3 style="margin-top:28px">Our vision</h3><p style="color:var(--muted);margin-top:8px">A society where every child enjoys education, protection, dignity and equal opportunities to build a better future.</p>
     <h3 style="margin-top:28px">Our approach</h3><ul class="list"><li>Partnerships with schools, government, community leaders, families and development partners</li><li>Family-based care first, always in the child's best interest</li><li>Each child assessed individually, never by community</li><li>Respect for every community's culture, knowledge and resilience</li></ul></div>
-    <div><div class="photo"><img src="img/ewaso-ngiro-at-samburu-intrepids-camp.jpg" alt="The Ewaso Ng'iro river under a blue sky" loading="lazy"><span class="credit">Daniel Case, CC BY-SA 4.0 (placeholder)</span></div>
+    <div><div class="photo framed"><img src="img/ewaso-ngiro-at-samburu-intrepids-camp.jpg" alt="The Ewaso Ng'iro river under a blue sky" loading="lazy"><span class="credit">Daniel Case, CC BY-SA 4.0 (placeholder)</span></div>
     <p class="quote" style="margin-top:28px">"Education is one of the most effective ways of breaking the cycle of poverty."</p></div>
   </div><div class="wrap"><p class="note"><b>Source:</b> mission, vision and approach from Cliffe's content; the headline line is from his background document ("protecting a child and educating a child must be treated as one responsibility").</p></div></section>
   <section class="sand"><div class="wrap two">
@@ -427,6 +472,28 @@ const nb=document.getElementById('notesbtn');
 nb.onclick=()=>{const on=document.body.classList.toggle('notes');nb.setAttribute('aria-pressed',on);nb.textContent=on?'Hide design notes':'Show design notes';};
 const mb=document.getElementById('menubtn');
 mb.onclick=()=>{const o=document.getElementById('nav').classList.toggle('open');mb.setAttribute('aria-expanded',o);};
+</script>
+
+<script>
+document.documentElement.classList.add('js');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.querySelectorAll('section h2, .pillar, .card, .step, .post, .tier, .box, .photo, .stat, .tags, .video, .map, .lead').forEach(el=>el.classList.add('reveal'));
+function countUp(el){if(el.dataset.done)return;el.dataset.done=1;const t=+el.dataset.count,d=+(el.dataset.dec||0),pre=el.dataset.prefix||'',suf=el.dataset.suffix||'';
+  if(reduce){el.textContent=pre+t.toFixed(d)+suf;return}const t0=performance.now(),dur=1400;
+  (function f(n){const k=Math.min(1,(n-t0)/dur),e=1-Math.pow(1-k,3);el.textContent=pre+(t*e).toFixed(d)+suf;if(k<1)requestAnimationFrame(f)})(t0);}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target;el.classList.add('in');
+  el.querySelectorAll&&el.querySelectorAll('[data-count]').forEach(countUp);if(el.matches('[data-count]'))countUp(el);io.unobserve(el)}),{threshold:.15});
+function observe(){document.querySelectorAll('.page.active .reveal:not(.in), .page.active .progress, .page.active [data-count], .hero-card').forEach(el=>io.observe(el));}
+observe();addEventListener('hashchange',()=>setTimeout(observe,50));
+setTimeout(()=>{const hb=document.getElementById('herobar');if(hb)hb.style.width='38%'},400);
+/* header shrink + scroll progress + hero parallax */
+const hdr=document.querySelector('header'),sbar=document.getElementById('sbar'),heroImg=document.querySelector('.hero img');
+addEventListener('scroll',()=>{const y=scrollY,h=document.documentElement.scrollHeight-innerHeight;hdr.classList.toggle('scrolled',y>20);sbar.style.width=(h>0?100*y/h:0)+'%';
+  if(heroImg&&!reduce&&y<900)heroImg.style.translate='0 '+(y*0.25)+'px';},{passive:true});
+/* subtle 3D tilt on programme cards */
+if(!reduce&&matchMedia('(hover:hover)').matches)document.querySelectorAll('.card').forEach(c=>{
+  c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`perspective(700px) rotateY(${x*6}deg) rotateX(${-y*6}deg) translateY(-3px)`;});
+  c.addEventListener('mouseleave',()=>{c.style.transform=''});});
 </script>
 </body>
 </html>
